@@ -22,7 +22,9 @@ defmodule AuthzedEx.MixProject do
   defp deps do
     [
       {:grpc, github: "elixir-grpc/grpc"},
-      {:cowlib, "~> 2.9.0", override: true}
+      {:cowlib, "~> 2.9.0", override: true},
+      {:protobuf, "~> 0.10.0"},
+      {:google_protos, "~> 0.2.0"}
     ]
   end
 end

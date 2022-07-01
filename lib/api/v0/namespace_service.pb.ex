@@ -37,3 +37,18 @@ defmodule Authzed.Api.V0.DeleteConfigsResponse do
 
   field :revision, 1, type: Authzed.Api.V0.Zookie
 end
+defmodule Authzed.Api.V0.NamespaceService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "authzed.api.v0.NamespaceService", protoc_gen_elixir_version: "0.10.0"
+
+  rpc :ReadConfig, Authzed.Api.V0.ReadConfigRequest, Authzed.Api.V0.ReadConfigResponse
+
+  rpc :WriteConfig, Authzed.Api.V0.WriteConfigRequest, Authzed.Api.V0.WriteConfigResponse
+
+  rpc :DeleteConfigs, Authzed.Api.V0.DeleteConfigsRequest, Authzed.Api.V0.DeleteConfigsResponse
+end
+
+defmodule Authzed.Api.V0.NamespaceService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Authzed.Api.V0.NamespaceService.Service
+end

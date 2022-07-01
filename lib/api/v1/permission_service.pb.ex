@@ -195,3 +195,36 @@ defmodule Authzed.Api.V1.LookupResourcesResponse do
   field :looked_up_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "lookedUpAt"
   field :resource_object_id, 2, type: :string, json_name: "resourceObjectId"
 end
+defmodule Authzed.Api.V1.PermissionsService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "authzed.api.v1.PermissionsService", protoc_gen_elixir_version: "0.10.0"
+
+  rpc :ReadRelationships,
+      Authzed.Api.V1.ReadRelationshipsRequest,
+      stream(Authzed.Api.V1.ReadRelationshipsResponse)
+
+  rpc :WriteRelationships,
+      Authzed.Api.V1.WriteRelationshipsRequest,
+      Authzed.Api.V1.WriteRelationshipsResponse
+
+  rpc :DeleteRelationships,
+      Authzed.Api.V1.DeleteRelationshipsRequest,
+      Authzed.Api.V1.DeleteRelationshipsResponse
+
+  rpc :CheckPermission,
+      Authzed.Api.V1.CheckPermissionRequest,
+      Authzed.Api.V1.CheckPermissionResponse
+
+  rpc :ExpandPermissionTree,
+      Authzed.Api.V1.ExpandPermissionTreeRequest,
+      Authzed.Api.V1.ExpandPermissionTreeResponse
+
+  rpc :LookupResources,
+      Authzed.Api.V1.LookupResourcesRequest,
+      stream(Authzed.Api.V1.LookupResourcesResponse)
+end
+
+defmodule Authzed.Api.V1.PermissionsService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Authzed.Api.V1.PermissionsService.Service
+end

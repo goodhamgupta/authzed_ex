@@ -40,3 +40,18 @@ defmodule Authzed.Api.V1alpha1.WatchResourcesResponse do
   field :updates, 1, repeated: true, type: Authzed.Api.V1alpha1.PermissionUpdate
   field :changes_through, 2, type: Authzed.Api.V1.ZedToken, json_name: "changesThrough"
 end
+defmodule Authzed.Api.V1alpha1.WatchResourcesService.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "authzed.api.v1alpha1.WatchResourcesService",
+    protoc_gen_elixir_version: "0.10.0"
+
+  rpc :WatchResources,
+      Authzed.Api.V1alpha1.WatchResourcesRequest,
+      stream(Authzed.Api.V1alpha1.WatchResourcesResponse)
+end
+
+defmodule Authzed.Api.V1alpha1.WatchResourcesService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Authzed.Api.V1alpha1.WatchResourcesService.Service
+end

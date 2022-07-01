@@ -172,3 +172,24 @@ defmodule Authzed.Api.V0.DeveloperError do
   field :path, 6, repeated: true, type: :string
   field :context, 7, type: :string
 end
+defmodule Authzed.Api.V0.DeveloperService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "authzed.api.v0.DeveloperService", protoc_gen_elixir_version: "0.10.0"
+
+  rpc :EditCheck, Authzed.Api.V0.EditCheckRequest, Authzed.Api.V0.EditCheckResponse
+
+  rpc :Validate, Authzed.Api.V0.ValidateRequest, Authzed.Api.V0.ValidateResponse
+
+  rpc :Share, Authzed.Api.V0.ShareRequest, Authzed.Api.V0.ShareResponse
+
+  rpc :LookupShared, Authzed.Api.V0.LookupShareRequest, Authzed.Api.V0.LookupShareResponse
+
+  rpc :UpgradeSchema, Authzed.Api.V0.UpgradeSchemaRequest, Authzed.Api.V0.UpgradeSchemaResponse
+
+  rpc :FormatSchema, Authzed.Api.V0.FormatSchemaRequest, Authzed.Api.V0.FormatSchemaResponse
+end
+
+defmodule Authzed.Api.V0.DeveloperService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Authzed.Api.V0.DeveloperService.Service
+end

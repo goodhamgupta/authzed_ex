@@ -135,3 +135,24 @@ defmodule Authzed.Api.V0.LookupResponse do
   field :next_page_reference, 2, type: :string, json_name: "nextPageReference"
   field :revision, 3, type: Authzed.Api.V0.Zookie
 end
+defmodule Authzed.Api.V0.ACLService.Service do
+  @moduledoc false
+  use GRPC.Service, name: "authzed.api.v0.ACLService", protoc_gen_elixir_version: "0.10.0"
+
+  rpc :Read, Authzed.Api.V0.ReadRequest, Authzed.Api.V0.ReadResponse
+
+  rpc :Write, Authzed.Api.V0.WriteRequest, Authzed.Api.V0.WriteResponse
+
+  rpc :Check, Authzed.Api.V0.CheckRequest, Authzed.Api.V0.CheckResponse
+
+  rpc :ContentChangeCheck, Authzed.Api.V0.ContentChangeCheckRequest, Authzed.Api.V0.CheckResponse
+
+  rpc :Expand, Authzed.Api.V0.ExpandRequest, Authzed.Api.V0.ExpandResponse
+
+  rpc :Lookup, Authzed.Api.V0.LookupRequest, Authzed.Api.V0.LookupResponse
+end
+
+defmodule Authzed.Api.V0.ACLService.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Authzed.Api.V0.ACLService.Service
+end

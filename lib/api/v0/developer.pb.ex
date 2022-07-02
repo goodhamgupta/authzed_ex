@@ -107,12 +107,6 @@ defmodule Authzed.Api.V0.RequestContext do
 
   field(:schema, 1, type: :string)
   field(:relationships, 2, repeated: true, type: Authzed.Api.V0.RelationTuple)
-
-  field(:legacy_ns_configs, 3,
-    repeated: true,
-    type: Authzed.Api.V0.NamespaceDefinition,
-    json_name: "legacyNsConfigs"
-  )
 end
 
 defmodule Authzed.Api.V0.EditCheckRequest do

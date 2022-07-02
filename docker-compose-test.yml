@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  spicedb:
+    image: authzed/spicedb
+    ports:
+      - "8080:8080"
+      - "9090:9090"
+      - "50051:50051"
+    environment:
+      - "SPICEDB_GRPC_PRESHARED_KEY=somerandomkeyhere"
+      - "SPICEDB_DATASTORE_ENGINE=memory"
+    command:
+      # serve --grpc-preshared-key "somerandomkeyhere"
+      serve-testing

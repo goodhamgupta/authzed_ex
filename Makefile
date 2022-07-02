@@ -10,10 +10,10 @@ generate:
 	buf generate buf.build/authzed/api:3e463bb359cf56fc95dae28138cbe4f09c67aa17
 	@echo "Generation successful"
 	@echo "Copying files to authzed/api folder..."
-	cp -r gen/elixir/authzed/api/* lib/api/
+	cp -r authzed/api/* lib/api/
 	@echo "Files moved successfully"
 	@echo "Removing generated files.."
-	rm -rf gen
+	rm -rf authzed
 	@echo "File cleanup completed"
 
 start-infra:

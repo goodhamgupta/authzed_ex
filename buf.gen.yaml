@@ -3,6 +3,6 @@
 version: "v1"
 plugins:
   - name: "elixir"
-    out: gen/elixir
+    out: "."
     opt:
       - plugins=grpc

@@ -1,13 +1,24 @@
 defmodule Authzed.MixProject do
   use Mix.Project
 
+  @version "0.0.1"
+  @repo_url "https://github.com/goodhamgupta/authzed_ex/"
+
   def project do
     [
       app: :authzed,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+
+      # Hex
+      package: package(),
+      description: "Unofficial SpiceDB library for Elixir",
+
+      # Docs
+      name: "Authzed",
+      docs: docs()
     ]
   end
 
@@ -22,9 +33,23 @@ defmodule Authzed.MixProject do
   defp deps do
     [
       {:grpc, github: "elixir-grpc/grpc"},
-      {:cowlib, "~> 2.9.0", override: true},
       {:protobuf, "~> 0.10.0"},
       {:google_protos, "~> 0.2.0"}
+    ]
+  end
+
+  defp package do
+    [
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => @repo_url}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "Authzed",
+      source_ref: "v#{@version}",
+      source_url: @repo_url
     ]
   end
 end

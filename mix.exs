@@ -32,7 +32,7 @@ defmodule Authzed.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:grpc, github: "elixir-grpc/grpc"},
+      {:grpc, "~> 0.3.1"},
       {:protobuf, "~> 0.10.0"},
       {:google_protos, "~> 0.2.0"}
     ]

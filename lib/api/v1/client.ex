@@ -10,8 +10,8 @@ defmodule Authzed.Api.V1.Client do
 
   defstruct @keys
 
-  def new(endpoint, token) when is_binary(token) do
-    {:ok, channel} = GRPC.Stub.connect(endpoint, headers: [authorization: "Bearer #{token}"])
+  def new(endpoint, auth_header) when is_list(auth_header) do
+    {:ok, channel} = GRPC.Stub.connect(endpoint, headers: auth_header)
     %__MODULE__{channel: channel}
   end
 
@@ -20,8 +20,8 @@ defmodule Authzed.Api.V1.Client do
     %__MODULE__{channel: channel}
   end
 
-  def new(host, port, token) when is_binary(token) do
-    {:ok, channel} = GRPC.Stub.connect(host, port, headers: [authorization: "Bearer #{token}"])
+  def new(host, port, auth_header) when is_list(auth_header) do
+    {:ok, channel} = GRPC.Stub.connect(host, port, headers: auth_header)
     %__MODULE__{channel: channel}
   end
 

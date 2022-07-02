@@ -1,6 +1,6 @@
-defmodule AuthzedEx do
+defmodule Authzed do
   @moduledoc """
-  Documentation for `AuthzedEx`.
+  Documentation for `Authzed`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule AuthzedEx do
 
   ## Examples
 
-      iex> AuthzedEx.hello()
+      iex> Authzed.hello()
       :world
 
   """

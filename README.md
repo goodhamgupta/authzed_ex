@@ -1,4 +1,4 @@
-# AuthzedEx
+# Authzed
 
 This repository houses the Elixir client library for Authzed.
 

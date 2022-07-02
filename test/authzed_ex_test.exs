@@ -1,8 +1,8 @@
-defmodule AuthzedExTest do
+defmodule AuthzedTest do
   use ExUnit.Case
-  doctest AuthzedEx
+  doctest Authzed
 
   test "greets the world" do
-    assert AuthzedEx.hello() == :world
+    assert Authzed.hello() == :world
   end
 end

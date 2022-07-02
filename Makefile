@@ -15,3 +15,14 @@ generate:
 	@echo "Removing generated files.."
 	rm -rf gen
 	@echo "File cleanup completed"
+
+start-infra:
+	@echo "Stopping and removing old containers.."
+	docker-compose stop
+	docker-compose rm -f
+	@echo "Starting infra.."
+	docker-compose up -d
+
+stop-infra:
+	docker-compose stop
+	docker-compose rm -f

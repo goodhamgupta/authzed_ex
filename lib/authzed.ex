@@ -25,7 +25,7 @@ defmodule Authzed do
   If you're interested in example uses of the API, see the test files in the [test directory].
 
   [Protecting Your First App]: https://docs.authzed.com/guides/first-app
-  [test directory]: /test
+  [test directory]: /test/authzed_test.exs
 
   ## Basic Usage
 

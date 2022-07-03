@@ -18,10 +18,11 @@ Additionally, Protobuf API documentation can be found on the [Buf Registry Authz
 [Authzed API Reference documentation]: https://docs.authzed.com/reference/api
 [Buf Registry Authzed API repository]: https://buf.build/authzed/api/docs/main
 
-## Installation
+## Basic Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `authzed_ex` to your list of dependencies in `mix.exs`:
+### Installation
+
+The package can be installed by adding `authzed_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -31,7 +32,48 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/authzed_ex](https://hexdocs.pm/authzed_ex).
+### Initializing a client
 
+In order to successfully connect, you will have to provide a [Bearer Token] with your own API Token from the [Authzed dashboard] in place of `somerandomkeyhere` in the following example:
+
+[Bearer Token]: https://datatracker.ietf.org/doc/html/rfc6750#section-2.1
+[Authzed Dashboard]: https://app.authzed.com
+
+```ex
+
+alias Authzed.Api.V1.{Client, GRPCUtil}
+
+client = Client.new(
+    "localhost:50051",
+    GrpcUtil.insecure_bearer_auth_token("somerandomkeyhere")
+)
+```
+
+### Performing an API call
+
+```ex
+
+alias Authzed.Api.V1.{
+  CheckPermissionRequest,
+  ObjectReference,
+  SubjectReference,
+}
+
+# Is Emilia in the set of users that can read post #1?
+post_one = ObjectReference.new(object_type: "post", object_id: "1")
+
+emilia =
+  SubjectReference.new(object: ObjectReference.new(object_type: "user", object_id: "emilia"))
+
+{:ok, response} =
+client.permissions_service.check_permission(
+  client.channel,
+  CheckPermissionRequest.new(
+    resource: post_one,
+    permission: "view",
+    subject: emilia
+  )
+)
+
+assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
+```

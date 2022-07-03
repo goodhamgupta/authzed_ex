@@ -95,7 +95,6 @@ defmodule AuthzedTest do
 
     # Check permissions
     # TODO: Fix the consistency check issue
-    :timer.sleep(3000)
 
     {:ok, response} =
       client.permissions_service.check_permission(

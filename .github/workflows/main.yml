@@ -95,4 +95,6 @@ jobs:
       - name: "Generate & Diff Protos"
         run: |
           ./buf.gen.yaml
-          bash -c '[ $(git status --porcelain | tee /dev/fd/2 | wc -c) -eq 0 ]'
+          mix format authzed/**/*.ex
+          bash -c '[ $(diff -qr authzed/api lib/api | grep "Only in authzed") -eq 1']
+          rm -rf authzed

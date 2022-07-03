@@ -36,7 +36,7 @@ defmodule Authzed do
   ```elixir
   def deps do
     [
-      {:authzed_ex, "~> 0.1.0"}
+      {:authzed_ex, "~> 0.0.1"}
     ]
   end
   ```

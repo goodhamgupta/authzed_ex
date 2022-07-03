@@ -27,7 +27,7 @@ The package can be installed by adding `authzed_ex` to your list of dependencies
 ```elixir
 def deps do
   [
-    {:authzed_ex, "~> 0.1.0"}
+    {:authzed_ex, "~> 0.0.1"}
   ]
 end
 ```

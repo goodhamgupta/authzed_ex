@@ -1,6 +1,6 @@
 # Authzed
 
-[![Hex pm](http://img.shields.io/hexpm/v/katipo.svg?style=flat)](https://hex.pm/packages/authzed)
+[![Hex pm](http://img.shields.io/hexpm/v/authzed.svg?style=flat)](https://hex.pm/packages/authzed)
 [![Build Status](https://github.com/goodhamgupta/authzed_ex/actions/workflows/main.yml/badge.svg)](https://github.com/goodhamgupta/authzed_ex/actions)
 
 This repository houses the Elixir client library for Authzed.

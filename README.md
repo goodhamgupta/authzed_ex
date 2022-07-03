@@ -20,6 +20,12 @@ Additionally, Protobuf API documentation can be found on the [Buf Registry Authz
 
 ## Basic Usage
 
+If you're using a local SpiceDB instance, you can start the instance with Docker and Docker Compose using the command:
+
+```ex
+make start-infra
+```
+
 ### Installation
 
 The package can be installed by adding `authzed_ex` to your list of dependencies in `mix.exs`:
@@ -77,3 +83,23 @@ client.permissions_service.check_permission(
 
 assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
 ```
+
+## Running Tests
+
+Run the tests using the command:
+
+```sh
+make run-tests
+```
+
+- Note that this will create a SpiceDB instance with the option `serve-testing`. creating an in-memory spicedb server which serves completely isolated datastores per client-supplied auth token used.
+
+## Generate Protobuf Definitions
+
+We use Buf to generate the protobuf and GRPC definitions for Elixir. You can use the command
+
+```sh
+make generate
+```
+
+to regenerate the definitions and move them to their respective folders.

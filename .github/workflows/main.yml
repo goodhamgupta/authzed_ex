@@ -99,5 +99,5 @@ jobs:
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH
           ./buf.gen.yaml
           mix format authzed/**/*.ex
-          bash -c '[ $(diff -qr authzed/api lib/api | grep "Only in authzed") -eq 1]'
+          bash -c '[ $(diff -qr authzed/api lib/api | grep "Only in authzed") -eq 1 ]'
           rm -rf authzed

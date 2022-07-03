@@ -31,12 +31,12 @@ defmodule Authzed do
 
   ### Installation
 
-  The package can be installed by adding `authzed_ex` to your list of dependencies in `mix.exs`:
+  The package can be installed by adding `authzed` to your list of dependencies in `mix.exs`:
 
   ```elixir
   def deps do
     [
-      {:authzed_ex, "~> 0.0.1"}
+      {:authzed, "~> 0.0.1"}
     ]
   end
   ```

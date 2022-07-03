@@ -1,5 +1,8 @@
 # Authzed
 
+[![Hex pm](http://img.shields.io/hexpm/v/katipo.svg?style=flat)](https://hex.pm/packages/authzed)
+[![Build Status](https://github.com/goodhamgupta/authzed_ex/actions/workflows/main.yml/badge.svg)](https://github.com/goodhamgupta/authzed_ex/actions)
+
 This repository houses the Elixir client library for Authzed.
 
 [Authzed] is a database and service that stores, computes, and validates your application's permissions.
@@ -28,12 +31,12 @@ make start-infra
 
 ### Installation
 
-The package can be installed by adding `authzed_ex` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `authzed` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:authzed_ex, "~> 0.0.1"}
+    {:authzed, "~> 0.0.1"}
   ]
 end
 ```
@@ -82,6 +85,11 @@ client.permissions_service.check_permission(
 )
 
 assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
+
+
+## Consistency Check
+
+At the moment, due to a [Protobuf Decoding issue](https://github.com/goodhamgupta/authzed_ex/issues/1), **none of the available consistency modes are supported**. We are working on resolving this ASAP.
 ```
 
 ## Running Tests

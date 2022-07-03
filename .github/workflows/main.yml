@@ -95,6 +95,7 @@ jobs:
       - name: "Generate & Diff Protos"
         run: |
           echo "~/.mix/escripts:$PATH" >> $GITHUB_PATH
+          echo $GITHUB_PATH
           ./buf.gen.yaml
           mix format authzed/**/*.ex
           bash -c '[ $(diff -qr authzed/api lib/api | grep "Only in authzed") -eq 1']

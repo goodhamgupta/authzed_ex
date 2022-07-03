@@ -85,12 +85,11 @@ client.permissions_service.check_permission(
 )
 
 assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
-
+```
 
 ## Consistency Check
 
 At the moment, due to a [Protobuf Decoding issue](https://github.com/goodhamgupta/authzed_ex/issues/1), **none of the available consistency modes are supported**. We are working on resolving this ASAP.
-```
 
 ## Running Tests
 

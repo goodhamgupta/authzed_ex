@@ -54,7 +54,7 @@ alias Authzed.Api.V1.{Client, GRPCUtil}
 
 client = Client.new(
     "localhost:50051",
-    GrpcUtil.insecure_bearer_auth_token("somerandomkeyhere")
+    GRPCUtil.insecure_bearer_auth_token("somerandomkeyhere")
 )
 ```
 
@@ -86,11 +86,6 @@ client.permissions_service.check_permission(
 
 assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
 ```
-
-## Consistency Check
-
-At the moment, due to a [Protobuf Decoding issue](https://github.com/goodhamgupta/authzed_ex/issues/1), **none of the available consistency modes are supported**. We are working on resolving this ASAP.
-
 ## Running Tests
 
 Run the tests using the command:

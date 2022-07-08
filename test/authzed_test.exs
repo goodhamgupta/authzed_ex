@@ -4,7 +4,6 @@ defmodule AuthzedTest do
   alias Authzed.Api.V1.{
     Client,
     CheckPermissionRequest,
-    CheckPermissionResponse,
     Client,
     Consistency,
     ObjectReference,

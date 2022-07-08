@@ -31,6 +31,6 @@ run-tests:
 	docker-compose -f docker-compose-test.yml stop
 	docker-compose -f docker-compose-test.yml rm -f
 	docker-compose -f docker-compose-test.yml up -d
-	mix test
+	mix test --warnings-as-errors
 	docker-compose -f docker-compose-test.yml stop
 	docker-compose -f docker-compose-test.yml rm -f

@@ -94,7 +94,6 @@ defmodule AuthzedTest do
     )
 
     # Check permissions
-    # TODO: Fix the consistency check issue
 
     {:ok, response} =
       client.permissions_service.check_permission(
@@ -102,8 +101,8 @@ defmodule AuthzedTest do
         CheckPermissionRequest.new(
           resource: post_one,
           permission: "view",
-          subject: emilia
-          # consistency: Consistency.new(requirement: :fully_consistent)
+          subject: emilia,
+          consistency: Consistency.new(requirement: {:fully_consistent, true})
         )
       )
 
@@ -115,8 +114,8 @@ defmodule AuthzedTest do
         CheckPermissionRequest.new(
           resource: post_one,
           permission: "view",
-          subject: beatrice
-          # consistency: Consistency.new(requirement: :fully_consistent)
+          subject: beatrice,
+          consistency: Consistency.new(requirement: {:fully_consistent, true})
         )
       )
 
@@ -128,8 +127,8 @@ defmodule AuthzedTest do
         CheckPermissionRequest.new(
           resource: post_one,
           permission: "write",
-          subject: beatrice
-          # consistency: Consistency.new(requirement: :fully_consistent)
+          subject: beatrice,
+          consistency: Consistency.new(requirement: {:fully_consistent, true})
         )
       )
 

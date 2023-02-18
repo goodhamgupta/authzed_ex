@@ -25,6 +25,20 @@ defmodule Authzed.Api.V1.Relationship do
   field(:resource, 1, type: Authzed.Api.V1.ObjectReference, deprecated: false)
   field(:relation, 2, type: :string, deprecated: false)
   field(:subject, 3, type: Authzed.Api.V1.SubjectReference, deprecated: false)
+
+  field(:optional_caveat, 4,
+    type: Authzed.Api.V1.ContextualizedCaveat,
+    json_name: "optionalCaveat",
+    deprecated: false
+  )
+end
+
+defmodule Authzed.Api.V1.ContextualizedCaveat do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field(:caveat_name, 1, type: :string, json_name: "caveatName", deprecated: false)
+  field(:context, 2, type: Google.Protobuf.Struct, deprecated: false)
 end
 
 defmodule Authzed.Api.V1.SubjectReference do
@@ -79,8 +93,17 @@ defmodule Authzed.Api.V1.AlgebraicSubjectSet do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field(:operation, 1, type: Authzed.Api.V1.AlgebraicSubjectSet.Operation, enum: true)
-  field(:children, 2, repeated: true, type: Authzed.Api.V1.PermissionRelationshipTree)
+  field(:operation, 1,
+    type: Authzed.Api.V1.AlgebraicSubjectSet.Operation,
+    enum: true,
+    deprecated: false
+  )
+
+  field(:children, 2,
+    repeated: true,
+    type: Authzed.Api.V1.PermissionRelationshipTree,
+    deprecated: false
+  )
 end
 
 defmodule Authzed.Api.V1.DirectSubjectSet do
@@ -88,4 +111,16 @@ defmodule Authzed.Api.V1.DirectSubjectSet do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field(:subjects, 1, repeated: true, type: Authzed.Api.V1.SubjectReference)
+end
+
+defmodule Authzed.Api.V1.PartialCaveatInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field(:missing_required_context, 1,
+    repeated: true,
+    type: :string,
+    json_name: "missingRequiredContext",
+    deprecated: false
+  )
 end

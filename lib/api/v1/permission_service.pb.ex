@@ -1,3 +1,12 @@
+defmodule Authzed.Api.V1.LookupPermissionship do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field(:LOOKUP_PERMISSIONSHIP_UNSPECIFIED, 0)
+  field(:LOOKUP_PERMISSIONSHIP_HAS_PERMISSION, 1)
+  field(:LOOKUP_PERMISSIONSHIP_CONDITIONAL_PERMISSION, 2)
+end
+
 defmodule Authzed.Api.V1.Precondition.Operation do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -14,6 +23,7 @@ defmodule Authzed.Api.V1.CheckPermissionResponse.Permissionship do
   field(:PERMISSIONSHIP_UNSPECIFIED, 0)
   field(:PERMISSIONSHIP_NO_PERMISSION, 1)
   field(:PERMISSIONSHIP_HAS_PERMISSION, 2)
+  field(:PERMISSIONSHIP_CONDITIONAL_PERMISSION, 3)
 end
 
 defmodule Authzed.Api.V1.Consistency do
@@ -106,8 +116,8 @@ defmodule Authzed.Api.V1.ReadRelationshipsResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field(:read_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "readAt")
-  field(:relationship, 2, type: Authzed.Api.V1.Relationship)
+  field(:read_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "readAt", deprecated: false)
+  field(:relationship, 2, type: Authzed.Api.V1.Relationship, deprecated: false)
 end
 
 defmodule Authzed.Api.V1.Precondition do
@@ -172,17 +182,25 @@ defmodule Authzed.Api.V1.CheckPermissionRequest do
   field(:resource, 2, type: Authzed.Api.V1.ObjectReference, deprecated: false)
   field(:permission, 3, type: :string, deprecated: false)
   field(:subject, 4, type: Authzed.Api.V1.SubjectReference, deprecated: false)
+  field(:context, 5, type: Google.Protobuf.Struct, deprecated: false)
 end
 
 defmodule Authzed.Api.V1.CheckPermissionResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field(:checked_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "checkedAt")
+  field(:checked_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "checkedAt", deprecated: false)
 
   field(:permissionship, 2,
     type: Authzed.Api.V1.CheckPermissionResponse.Permissionship,
-    enum: true
+    enum: true,
+    deprecated: false
+  )
+
+  field(:partial_caveat_info, 3,
+    type: Authzed.Api.V1.PartialCaveatInfo,
+    json_name: "partialCaveatInfo",
+    deprecated: false
   )
 end
 
@@ -217,6 +235,7 @@ defmodule Authzed.Api.V1.LookupResourcesRequest do
 
   field(:permission, 3, type: :string, deprecated: false)
   field(:subject, 4, type: Authzed.Api.V1.SubjectReference, deprecated: false)
+  field(:context, 5, type: Google.Protobuf.Struct, deprecated: false)
 end
 
 defmodule Authzed.Api.V1.LookupResourcesResponse do
@@ -225,6 +244,90 @@ defmodule Authzed.Api.V1.LookupResourcesResponse do
 
   field(:looked_up_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "lookedUpAt")
   field(:resource_object_id, 2, type: :string, json_name: "resourceObjectId")
+
+  field(:permissionship, 3,
+    type: Authzed.Api.V1.LookupPermissionship,
+    enum: true,
+    deprecated: false
+  )
+
+  field(:partial_caveat_info, 4,
+    type: Authzed.Api.V1.PartialCaveatInfo,
+    json_name: "partialCaveatInfo",
+    deprecated: false
+  )
+end
+
+defmodule Authzed.Api.V1.LookupSubjectsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field(:consistency, 1, type: Authzed.Api.V1.Consistency)
+  field(:resource, 2, type: Authzed.Api.V1.ObjectReference, deprecated: false)
+  field(:permission, 3, type: :string, deprecated: false)
+  field(:subject_object_type, 4, type: :string, json_name: "subjectObjectType", deprecated: false)
+
+  field(:optional_subject_relation, 5,
+    type: :string,
+    json_name: "optionalSubjectRelation",
+    deprecated: false
+  )
+
+  field(:context, 6, type: Google.Protobuf.Struct, deprecated: false)
+end
+
+defmodule Authzed.Api.V1.LookupSubjectsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field(:looked_up_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "lookedUpAt")
+  field(:subject_object_id, 2, type: :string, json_name: "subjectObjectId", deprecated: true)
+
+  field(:excluded_subject_ids, 3,
+    repeated: true,
+    type: :string,
+    json_name: "excludedSubjectIds",
+    deprecated: true
+  )
+
+  field(:permissionship, 4,
+    type: Authzed.Api.V1.LookupPermissionship,
+    enum: true,
+    deprecated: true
+  )
+
+  field(:partial_caveat_info, 5,
+    type: Authzed.Api.V1.PartialCaveatInfo,
+    json_name: "partialCaveatInfo",
+    deprecated: true
+  )
+
+  field(:subject, 6, type: Authzed.Api.V1.ResolvedSubject)
+
+  field(:excluded_subjects, 7,
+    repeated: true,
+    type: Authzed.Api.V1.ResolvedSubject,
+    json_name: "excludedSubjects"
+  )
+end
+
+defmodule Authzed.Api.V1.ResolvedSubject do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field(:subject_object_id, 1, type: :string, json_name: "subjectObjectId")
+
+  field(:permissionship, 2,
+    type: Authzed.Api.V1.LookupPermissionship,
+    enum: true,
+    deprecated: false
+  )
+
+  field(:partial_caveat_info, 3,
+    type: Authzed.Api.V1.PartialCaveatInfo,
+    json_name: "partialCaveatInfo",
+    deprecated: false
+  )
 end
 
 defmodule Authzed.Api.V1.PermissionsService.Service do
@@ -265,6 +368,12 @@ defmodule Authzed.Api.V1.PermissionsService.Service do
     :LookupResources,
     Authzed.Api.V1.LookupResourcesRequest,
     stream(Authzed.Api.V1.LookupResourcesResponse)
+  )
+
+  rpc(
+    :LookupSubjects,
+    Authzed.Api.V1.LookupSubjectsRequest,
+    stream(Authzed.Api.V1.LookupSubjectsResponse)
   )
 end
 

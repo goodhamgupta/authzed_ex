@@ -8,7 +8,7 @@ defmodule Authzed.MixProject do
     [
       app: :authzed,
       version: @version,
-      elixir: "~> 1.12",
+      elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 

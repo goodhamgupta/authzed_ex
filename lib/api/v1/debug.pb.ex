@@ -1,6 +1,7 @@
 defmodule Authzed.Api.V1.CheckDebugTrace.PermissionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:PERMISSION_TYPE_UNSPECIFIED, 0)
   field(:PERMISSION_TYPE_RELATION, 1)
@@ -9,7 +10,8 @@ end
 
 defmodule Authzed.Api.V1.CheckDebugTrace.Permissionship do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:PERMISSIONSHIP_UNSPECIFIED, 0)
   field(:PERMISSIONSHIP_NO_PERMISSION, 1)
@@ -19,7 +21,8 @@ end
 
 defmodule Authzed.Api.V1.CaveatEvalInfo.Result do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:RESULT_UNSPECIFIED, 0)
   field(:RESULT_UNEVALUATED, 1)
@@ -30,7 +33,8 @@ end
 
 defmodule Authzed.Api.V1.DebugInformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:check, 1, type: Authzed.Api.V1.CheckDebugTrace)
   field(:schema_used, 2, type: :string, json_name: "schemaUsed")
@@ -38,14 +42,16 @@ end
 
 defmodule Authzed.Api.V1.CheckDebugTrace.SubProblems do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:traces, 1, repeated: true, type: Authzed.Api.V1.CheckDebugTrace)
 end
 
 defmodule Authzed.Api.V1.CheckDebugTrace do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof(:resolution, 0)
 
@@ -83,7 +89,8 @@ end
 
 defmodule Authzed.Api.V1.CaveatEvalInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:expression, 1, type: :string)
   field(:result, 2, type: Authzed.Api.V1.CaveatEvalInfo.Result, enum: true)

@@ -54,7 +54,7 @@ defmodule Authzed do
 
   client = Client.new(
       "localhost:50051",
-      GrpcUtil.insecure_bearer_auth_token("somerandomkeyhere")
+      GRPCUtil.insecure_bearer_auth_token("somerandomkeyhere")
   )
   ```
 

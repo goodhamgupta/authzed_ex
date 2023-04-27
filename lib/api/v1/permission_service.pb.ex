@@ -1,6 +1,7 @@
 defmodule Authzed.Api.V1.LookupPermissionship do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:LOOKUP_PERMISSIONSHIP_UNSPECIFIED, 0)
   field(:LOOKUP_PERMISSIONSHIP_HAS_PERMISSION, 1)
@@ -9,7 +10,8 @@ end
 
 defmodule Authzed.Api.V1.Precondition.Operation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:OPERATION_UNSPECIFIED, 0)
   field(:OPERATION_MUST_NOT_MATCH, 1)
@@ -18,7 +20,8 @@ end
 
 defmodule Authzed.Api.V1.CheckPermissionResponse.Permissionship do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:PERMISSIONSHIP_UNSPECIFIED, 0)
   field(:PERMISSIONSHIP_NO_PERMISSION, 1)
@@ -28,7 +31,8 @@ end
 
 defmodule Authzed.Api.V1.Consistency do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof(:requirement, 0)
 
@@ -61,7 +65,8 @@ end
 
 defmodule Authzed.Api.V1.RelationshipFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:resource_type, 1, type: :string, json_name: "resourceType", deprecated: false)
 
@@ -81,14 +86,16 @@ end
 
 defmodule Authzed.Api.V1.SubjectFilter.RelationFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:relation, 1, type: :string, deprecated: false)
 end
 
 defmodule Authzed.Api.V1.SubjectFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:subject_type, 1, type: :string, json_name: "subjectType", deprecated: false)
   field(:optional_subject_id, 2, type: :string, json_name: "optionalSubjectId", deprecated: false)
@@ -101,7 +108,8 @@ end
 
 defmodule Authzed.Api.V1.ReadRelationshipsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
 
@@ -114,7 +122,8 @@ end
 
 defmodule Authzed.Api.V1.ReadRelationshipsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:read_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "readAt", deprecated: false)
   field(:relationship, 2, type: Authzed.Api.V1.Relationship, deprecated: false)
@@ -122,7 +131,8 @@ end
 
 defmodule Authzed.Api.V1.Precondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:operation, 1, type: Authzed.Api.V1.Precondition.Operation, enum: true, deprecated: false)
   field(:filter, 2, type: Authzed.Api.V1.RelationshipFilter, deprecated: false)
@@ -130,7 +140,8 @@ end
 
 defmodule Authzed.Api.V1.WriteRelationshipsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:updates, 1, repeated: true, type: Authzed.Api.V1.RelationshipUpdate, deprecated: false)
 
@@ -144,14 +155,16 @@ end
 
 defmodule Authzed.Api.V1.WriteRelationshipsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:written_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "writtenAt")
 end
 
 defmodule Authzed.Api.V1.DeleteRelationshipsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:relationship_filter, 1,
     type: Authzed.Api.V1.RelationshipFilter,
@@ -169,14 +182,16 @@ end
 
 defmodule Authzed.Api.V1.DeleteRelationshipsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:deleted_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "deletedAt")
 end
 
 defmodule Authzed.Api.V1.CheckPermissionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:resource, 2, type: Authzed.Api.V1.ObjectReference, deprecated: false)
@@ -187,7 +202,8 @@ end
 
 defmodule Authzed.Api.V1.CheckPermissionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:checked_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "checkedAt", deprecated: false)
 
@@ -206,7 +222,8 @@ end
 
 defmodule Authzed.Api.V1.ExpandPermissionTreeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:resource, 2, type: Authzed.Api.V1.ObjectReference, deprecated: false)
@@ -215,7 +232,8 @@ end
 
 defmodule Authzed.Api.V1.ExpandPermissionTreeResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:expanded_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "expandedAt")
   field(:tree_root, 2, type: Authzed.Api.V1.PermissionRelationshipTree, json_name: "treeRoot")
@@ -223,7 +241,8 @@ end
 
 defmodule Authzed.Api.V1.LookupResourcesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
 
@@ -240,7 +259,8 @@ end
 
 defmodule Authzed.Api.V1.LookupResourcesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:looked_up_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "lookedUpAt")
   field(:resource_object_id, 2, type: :string, json_name: "resourceObjectId")
@@ -260,7 +280,8 @@ end
 
 defmodule Authzed.Api.V1.LookupSubjectsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:resource, 2, type: Authzed.Api.V1.ObjectReference, deprecated: false)
@@ -278,7 +299,8 @@ end
 
 defmodule Authzed.Api.V1.LookupSubjectsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:looked_up_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "lookedUpAt")
   field(:subject_object_id, 2, type: :string, json_name: "subjectObjectId", deprecated: true)
@@ -313,7 +335,8 @@ end
 
 defmodule Authzed.Api.V1.ResolvedSubject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:subject_object_id, 1, type: :string, json_name: "subjectObjectId")
 
@@ -332,7 +355,8 @@ end
 
 defmodule Authzed.Api.V1.PermissionsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "authzed.api.v1.PermissionsService", protoc_gen_elixir_version: "0.10.0"
+
+  use GRPC.Service, name: "authzed.api.v1.PermissionsService", protoc_gen_elixir_version: "0.12.0"
 
   rpc(
     :ReadRelationships,
@@ -379,5 +403,6 @@ end
 
 defmodule Authzed.Api.V1.PermissionsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Authzed.Api.V1.PermissionsService.Service
 end

@@ -1,14 +1,14 @@
 defmodule Authzed.MixProject do
   use Mix.Project
 
-  @version "0.0.2"
+  @version "0.0.3"
   @repo_url "https://github.com/goodhamgupta/authzed_ex/"
 
   def project do
     [
       app: :authzed,
       version: @version,
-      elixir: "~> 1.12",
+      elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 

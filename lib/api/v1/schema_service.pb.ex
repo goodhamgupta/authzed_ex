@@ -9,7 +9,7 @@ defmodule Authzed.Api.V1.ReadSchemaResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :schema_text, 1, type: :string, json_name: "schemaText"
+  field(:schema_text, 1, type: :string, json_name: "schemaText")
 end
 
 defmodule Authzed.Api.V1.WriteSchemaRequest do
@@ -17,7 +17,7 @@ defmodule Authzed.Api.V1.WriteSchemaRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :schema, 1, type: :string, deprecated: false
+  field(:schema, 1, type: :string, deprecated: false)
 end
 
 defmodule Authzed.Api.V1.WriteSchemaResponse do
@@ -31,9 +31,9 @@ defmodule Authzed.Api.V1.SchemaService.Service do
 
   use GRPC.Service, name: "authzed.api.v1.SchemaService", protoc_gen_elixir_version: "0.12.0"
 
-  rpc :ReadSchema, Authzed.Api.V1.ReadSchemaRequest, Authzed.Api.V1.ReadSchemaResponse
+  rpc(:ReadSchema, Authzed.Api.V1.ReadSchemaRequest, Authzed.Api.V1.ReadSchemaResponse)
 
-  rpc :WriteSchema, Authzed.Api.V1.WriteSchemaRequest, Authzed.Api.V1.WriteSchemaResponse
+  rpc(:WriteSchema, Authzed.Api.V1.WriteSchemaRequest, Authzed.Api.V1.WriteSchemaResponse)
 end
 
 defmodule Authzed.Api.V1.SchemaService.Stub do

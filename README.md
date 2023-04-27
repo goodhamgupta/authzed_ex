@@ -105,3 +105,7 @@ make generate
 ```
 
 to regenerate the definitions and move them to their respective folders.
+
+**NOTE** 
+- Install protoc-gen-elixir using the instructions in the [Elixir Protobuf Repository](https://github.com/elixir-protobuf/protobuf#generate-elixir-code)
+- If you're using asdf to manage elixir versions, run the command `asdf reshim elixir` to add the `protoc-gen-elixir` executable to the PATH.

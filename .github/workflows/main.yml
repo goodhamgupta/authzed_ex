@@ -102,4 +102,5 @@ jobs:
           ./buf.gen.yaml
           mix format authzed/**/*.ex
           bash -c '[[ $(diff -qr authzed/api lib/api | grep "Only in authzed") -eq 0 ]]'
+          mix format
           rm -rf authzed

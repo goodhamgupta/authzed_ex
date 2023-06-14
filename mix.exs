@@ -1,7 +1,7 @@
 defmodule Authzed.MixProject do
   use Mix.Project
 
-  @version "0.0.3"
+  @version "0.0.4"
   @repo_url "https://github.com/goodhamgupta/authzed_ex/"
 
   def project do
@@ -33,7 +33,7 @@ defmodule Authzed.MixProject do
   defp deps do
     [
       {:grpc, "~> 0.5.0"},
-      {:protobuf, "~> 0.11.0"},
+      {:protobuf, "~> 0.12.0"},
       {:google_protos, "~> 0.2.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]

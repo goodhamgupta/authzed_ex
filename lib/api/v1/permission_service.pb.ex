@@ -18,6 +18,16 @@ defmodule Authzed.Api.V1.Precondition.Operation do
   field(:OPERATION_MUST_MATCH, 2)
 end
 
+defmodule Authzed.Api.V1.DeleteRelationshipsResponse.DeletionProgress do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field(:DELETION_PROGRESS_UNSPECIFIED, 0)
+  field(:DELETION_PROGRESS_COMPLETE, 1)
+  field(:DELETION_PROGRESS_PARTIAL, 2)
+end
+
 defmodule Authzed.Api.V1.CheckPermissionResponse.Permissionship do
   @moduledoc false
 
@@ -27,6 +37,16 @@ defmodule Authzed.Api.V1.CheckPermissionResponse.Permissionship do
   field(:PERMISSIONSHIP_NO_PERMISSION, 1)
   field(:PERMISSIONSHIP_HAS_PERMISSION, 2)
   field(:PERMISSIONSHIP_CONDITIONAL_PERMISSION, 3)
+end
+
+defmodule Authzed.Api.V1.LookupSubjectsRequest.WildcardOption do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field(:WILDCARD_OPTION_UNSPECIFIED, 0)
+  field(:WILDCARD_OPTION_INCLUDE_WILDCARDS, 1)
+  field(:WILDCARD_OPTION_EXCLUDE_WILDCARDS, 2)
 end
 
 defmodule Authzed.Api.V1.Consistency do
@@ -118,6 +138,9 @@ defmodule Authzed.Api.V1.ReadRelationshipsRequest do
     json_name: "relationshipFilter",
     deprecated: false
   )
+
+  field(:optional_limit, 3, type: :uint32, json_name: "optionalLimit", deprecated: false)
+  field(:optional_cursor, 4, type: Authzed.Api.V1.Cursor, json_name: "optionalCursor")
 end
 
 defmodule Authzed.Api.V1.ReadRelationshipsResponse do
@@ -127,6 +150,7 @@ defmodule Authzed.Api.V1.ReadRelationshipsResponse do
 
   field(:read_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "readAt", deprecated: false)
   field(:relationship, 2, type: Authzed.Api.V1.Relationship, deprecated: false)
+  field(:after_result_cursor, 3, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
 end
 
 defmodule Authzed.Api.V1.Precondition do
@@ -178,6 +202,13 @@ defmodule Authzed.Api.V1.DeleteRelationshipsRequest do
     json_name: "optionalPreconditions",
     deprecated: false
   )
+
+  field(:optional_limit, 3, type: :uint32, json_name: "optionalLimit", deprecated: false)
+
+  field(:optional_allow_partial_deletions, 4,
+    type: :bool,
+    json_name: "optionalAllowPartialDeletions"
+  )
 end
 
 defmodule Authzed.Api.V1.DeleteRelationshipsResponse do
@@ -186,6 +217,12 @@ defmodule Authzed.Api.V1.DeleteRelationshipsResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field(:deleted_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "deletedAt")
+
+  field(:deletion_progress, 2,
+    type: Authzed.Api.V1.DeleteRelationshipsResponse.DeletionProgress,
+    json_name: "deletionProgress",
+    enum: true
+  )
 end
 
 defmodule Authzed.Api.V1.CheckPermissionRequest do
@@ -255,6 +292,8 @@ defmodule Authzed.Api.V1.LookupResourcesRequest do
   field(:permission, 3, type: :string, deprecated: false)
   field(:subject, 4, type: Authzed.Api.V1.SubjectReference, deprecated: false)
   field(:context, 5, type: Google.Protobuf.Struct, deprecated: false)
+  field(:optional_limit, 6, type: :uint32, json_name: "optionalLimit", deprecated: false)
+  field(:optional_cursor, 7, type: Authzed.Api.V1.Cursor, json_name: "optionalCursor")
 end
 
 defmodule Authzed.Api.V1.LookupResourcesResponse do
@@ -276,6 +315,8 @@ defmodule Authzed.Api.V1.LookupResourcesResponse do
     json_name: "partialCaveatInfo",
     deprecated: false
   )
+
+  field(:after_result_cursor, 5, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
 end
 
 defmodule Authzed.Api.V1.LookupSubjectsRequest do
@@ -295,6 +336,20 @@ defmodule Authzed.Api.V1.LookupSubjectsRequest do
   )
 
   field(:context, 6, type: Google.Protobuf.Struct, deprecated: false)
+
+  field(:optional_concrete_limit, 7,
+    type: :uint32,
+    json_name: "optionalConcreteLimit",
+    deprecated: false
+  )
+
+  field(:optional_cursor, 8, type: Authzed.Api.V1.Cursor, json_name: "optionalCursor")
+
+  field(:wildcard_option, 9,
+    type: Authzed.Api.V1.LookupSubjectsRequest.WildcardOption,
+    json_name: "wildcardOption",
+    enum: true
+  )
 end
 
 defmodule Authzed.Api.V1.LookupSubjectsResponse do
@@ -331,6 +386,8 @@ defmodule Authzed.Api.V1.LookupSubjectsResponse do
     type: Authzed.Api.V1.ResolvedSubject,
     json_name: "excludedSubjects"
   )
+
+  field(:after_result_cursor, 8, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
 end
 
 defmodule Authzed.Api.V1.ResolvedSubject do

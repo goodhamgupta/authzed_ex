@@ -71,6 +71,14 @@ defmodule Authzed.Api.V1.ZedToken do
   field(:token, 1, type: :string, deprecated: false)
 end
 
+defmodule Authzed.Api.V1.Cursor do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field(:token, 1, type: :string, deprecated: false)
+end
+
 defmodule Authzed.Api.V1.RelationshipUpdate do
   @moduledoc false
 

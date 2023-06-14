@@ -5,7 +5,8 @@ defmodule Authzed.Api.V1.Client do
     :channel,
     permissions_service: V1.PermissionsService.Stub,
     schema_service: V1.SchemaService.Stub,
-    watch_service: V1.WatchService.Stub
+    watch_service: V1.WatchService.Stub,
+    experimental_service: V1.ExperimentalService.Stub
   ]
 
   defstruct @keys

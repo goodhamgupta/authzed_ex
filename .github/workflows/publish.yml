@@ -8,9 +8,35 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      MIX_ENV: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - pair:
+              elixir: 1.14.0
+              otp: 24.0
+            lint: lint
     steps:
-      - name: Check out
+      - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Setup elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{matrix.pair.otp}}
+          elixir-version: ${{matrix.pair.elixir}}
+
+      - name: 'Cache deps'
+        uses: actions/cache@v2
+        with:
+          path: |
+            deps
+            _build
+          key: ${{ runner.os }}-mix-${{matrix.pair.elixir}}-${{matrix.pair.otp}}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-mix-
 
       - name: Publish to Hex.pm
         run: |

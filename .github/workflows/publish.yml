@@ -9,7 +9,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      MIX_ENV: test
+      MIX_ENV: dev
     strategy:
       fail-fast: false
       matrix:

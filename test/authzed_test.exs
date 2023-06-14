@@ -33,9 +33,9 @@ defmodule AuthzedTest do
         definition user {}
     """
 
-    client.schema_service.write_schema(client.channel, WriteSchemaRequest.new(schema: schema))
+    client.schema_service.write_schema(client.channel, %WriteSchemaRequest{schema: schema})
 
-    {:ok, resp} = client.schema_service.read_schema(client.channel, ReadSchemaRequest.new())
+    {:ok, resp} = client.schema_service.read_schema(client.channel, %ReadSchemaRequest{})
     assert String.contains?(resp.schema_text, "definition document")
     assert String.contains?(resp.schema_text, "definition user")
   end
@@ -53,56 +53,50 @@ defmodule AuthzedTest do
         definition user {}
     """
 
-    client.schema_service.write_schema(client.channel, WriteSchemaRequest.new(schema: schema))
+    client.schema_service.write_schema(client.channel, %WriteSchemaRequest{schema: schema})
 
-    emilia =
-      SubjectReference.new(object: ObjectReference.new(object_type: "user", object_id: "emilia"))
+    emilia = %SubjectReference{object: %ObjectReference{object_type: "user", object_id: "emilia"}}
 
-    beatrice =
-      SubjectReference.new(
-        object: ObjectReference.new(object_type: "user", object_id: "beatrice")
-      )
+    beatrice = %SubjectReference{
+      object: %ObjectReference{object_type: "user", object_id: "beatrice"}
+    }
 
-    post_one = ObjectReference.new(object_type: "post", object_id: "1")
+    post_one = %ObjectReference{object_type: "post", object_id: "1"}
 
     # Add relationships
     client.channel
-    |> client.permissions_service.write_relationships(
-      WriteRelationshipsRequest.new(
-        updates: [
-          RelationshipUpdate.new(
-            operation: :OPERATION_CREATE,
-            relationship:
-              Relationship.new(
-                resource: post_one,
-                relation: "writer",
-                subject: emilia
-              )
-          ),
-          RelationshipUpdate.new(
-            operation: :OPERATION_CREATE,
-            relationship:
-              Relationship.new(
-                resource: post_one,
-                relation: "reader",
-                subject: beatrice
-              )
-          )
-        ]
-      )
-    )
+    |> client.permissions_service.write_relationships(%WriteRelationshipsRequest{
+      updates: [
+        %RelationshipUpdate{
+          operation: :OPERATION_CREATE,
+          relationship: %Relationship{
+            resource: post_one,
+            relation: "writer",
+            subject: emilia
+          }
+        },
+        %RelationshipUpdate{
+          operation: :OPERATION_CREATE,
+          relationship: %Relationship{
+            resource: post_one,
+            relation: "reader",
+            subject: beatrice
+          }
+        }
+      ]
+    })
 
     # Check permissions
 
     {:ok, response} =
       client.permissions_service.check_permission(
         client.channel,
-        CheckPermissionRequest.new(
+        %CheckPermissionRequest{
           resource: post_one,
           permission: "view",
           subject: emilia,
-          consistency: Consistency.new(requirement: {:fully_consistent, true})
-        )
+          consistency: %Consistency{requirement: {:fully_consistent, true}}
+        }
       )
 
     assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
@@ -110,12 +104,12 @@ defmodule AuthzedTest do
     {:ok, response} =
       client.permissions_service.check_permission(
         client.channel,
-        CheckPermissionRequest.new(
+        %CheckPermissionRequest{
           resource: post_one,
           permission: "view",
           subject: beatrice,
-          consistency: Consistency.new(requirement: {:fully_consistent, true})
-        )
+          consistency: %Consistency{requirement: {:fully_consistent, true}}
+        }
       )
 
     assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
@@ -123,12 +117,12 @@ defmodule AuthzedTest do
     {:ok, response} =
       client.permissions_service.check_permission(
         client.channel,
-        CheckPermissionRequest.new(
+        %CheckPermissionRequest{
           resource: post_one,
           permission: "write",
           subject: beatrice,
-          consistency: Consistency.new(requirement: {:fully_consistent, true})
-        )
+          consistency: %Consistency{requirement: {:fully_consistent, true}}
+        }
       )
 
     assert response.permissionship == :PERMISSIONSHIP_NO_PERMISSION

@@ -86,6 +86,12 @@ client.permissions_service.check_permission(
 
 assert response.permissionship == :PERMISSIONSHIP_HAS_PERMISSION
 ```
+
+### Telemetry
+
+Since version `0.0.6` telemetry events are published by the GRPC library. 
+See [docs](https://hexdocs.pm/grpc/GRPC.Telemetry.html) for details.
+
 ## Running Tests
 
 Run the tests using the command:

@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V1.BulkImportRelationshipsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:relationships, 1, repeated: true, type: Authzed.Api.V1.Relationship, deprecated: false)
 end
@@ -9,7 +9,7 @@ end
 defmodule Authzed.Api.V1.BulkImportRelationshipsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:num_loaded, 1, type: :uint64, json_name: "numLoaded")
 end
@@ -17,7 +17,7 @@ end
 defmodule Authzed.Api.V1.BulkExportRelationshipsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:optional_limit, 2, type: :uint32, json_name: "optionalLimit", deprecated: false)
@@ -27,7 +27,7 @@ end
 defmodule Authzed.Api.V1.BulkExportRelationshipsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:after_result_cursor, 1, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
   field(:relationships, 2, repeated: true, type: Authzed.Api.V1.Relationship)

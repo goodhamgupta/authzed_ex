@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V1alpha1.PermissionUpdate.Permissionship do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:PERMISSIONSHIP_UNSPECIFIED, 0)
   field(:PERMISSIONSHIP_NO_PERMISSION, 1)
@@ -11,7 +11,7 @@ end
 defmodule Authzed.Api.V1alpha1.WatchResourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:resource_object_type, 1,
     type: :string,
@@ -23,13 +23,16 @@ defmodule Authzed.Api.V1alpha1.WatchResourcesRequest do
   field(:subject_object_type, 3, type: :string, json_name: "subjectObjectType")
   field(:optional_subject_relation, 4, type: :string, json_name: "optionalSubjectRelation")
 
-  field(:optional_start_cursor, 5, type: Authzed.Api.V1.ZedToken, json_name: "optionalStartCursor")
+  field(:optional_start_cursor, 5,
+    type: Authzed.Api.V1.ZedToken,
+    json_name: "optionalStartCursor"
+  )
 end
 
 defmodule Authzed.Api.V1alpha1.PermissionUpdate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:subject, 1, type: Authzed.Api.V1.SubjectReference)
   field(:resource, 2, type: Authzed.Api.V1.ObjectReference)
@@ -45,7 +48,7 @@ end
 defmodule Authzed.Api.V1alpha1.WatchResourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:updates, 1, repeated: true, type: Authzed.Api.V1alpha1.PermissionUpdate)
   field(:changes_through, 2, type: Authzed.Api.V1.ZedToken, json_name: "changesThrough")

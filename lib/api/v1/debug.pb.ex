@@ -78,7 +78,6 @@ defmodule Authzed.Api.V1.CheckDebugTrace do
     json_name: "caveatEvaluationInfo"
   )
 
-  field(:duration, 9, type: Google.Protobuf.Duration)
   field(:was_cached_result, 6, type: :bool, json_name: "wasCachedResult", oneof: 0)
 
   field(:sub_problems, 7,

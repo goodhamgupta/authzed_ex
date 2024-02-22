@@ -17,7 +17,7 @@ Supported client API versions:
 You can find more info on each API on the [Authzed API reference documentation].
 Additionally, Protobuf API documentation can be found on the [Buf Registry Authzed API repository].
 
-**NOTE**: Current Authzed SDK commit version on Buf available [here](https://buf.build/authzed/api/activity/commit/dc592e107033a7a4336935cf94fb90426719508d)
+**NOTE**: Current Authzed SDK commit version on Buf available [here](https://buf.build/authzed/api/activity/commit/3b2e62dfe4654fc3b93e8d095fcbe8dd)
 
 [Authzed]: https://authzed.com
 [Authzed API Reference documentation]: https://docs.authzed.com/reference/api

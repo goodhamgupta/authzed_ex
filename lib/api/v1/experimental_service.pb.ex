@@ -91,6 +91,11 @@ defmodule Authzed.Api.V1.BulkExportRelationshipsRequest do
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:optional_limit, 2, type: :uint32, json_name: "optionalLimit", deprecated: false)
   field(:optional_cursor, 3, type: Authzed.Api.V1.Cursor, json_name: "optionalCursor")
+
+  field(:optional_relationship_filter, 4,
+    type: Authzed.Api.V1.RelationshipFilter,
+    json_name: "optionalRelationshipFilter"
+  )
 end
 
 defmodule Authzed.Api.V1.BulkExportRelationshipsResponse do

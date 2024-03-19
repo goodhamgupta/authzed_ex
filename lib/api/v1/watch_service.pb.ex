@@ -14,6 +14,12 @@ defmodule Authzed.Api.V1.WatchRequest do
     type: Authzed.Api.V1.ZedToken,
     json_name: "optionalStartCursor"
   )
+
+  field(:optional_relationship_filters, 3,
+    repeated: true,
+    type: Authzed.Api.V1.RelationshipFilter,
+    json_name: "optionalRelationshipFilters"
+  )
 end
 
 defmodule Authzed.Api.V1.WatchResponse do

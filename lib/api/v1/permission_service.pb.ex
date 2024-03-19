@@ -96,6 +96,12 @@ defmodule Authzed.Api.V1.RelationshipFilter do
     deprecated: false
   )
 
+  field(:optional_resource_id_prefix, 5,
+    type: :string,
+    json_name: "optionalResourceIdPrefix",
+    deprecated: false
+  )
+
   field(:optional_relation, 3, type: :string, json_name: "optionalRelation", deprecated: false)
 
   field(:optional_subject_filter, 4,
@@ -235,6 +241,7 @@ defmodule Authzed.Api.V1.CheckPermissionRequest do
   field(:permission, 3, type: :string, deprecated: false)
   field(:subject, 4, type: Authzed.Api.V1.SubjectReference, deprecated: false)
   field(:context, 5, type: Google.Protobuf.Struct, deprecated: false)
+  field(:with_tracing, 6, type: :bool, json_name: "withTracing")
 end
 
 defmodule Authzed.Api.V1.CheckPermissionResponse do
@@ -251,6 +258,77 @@ defmodule Authzed.Api.V1.CheckPermissionResponse do
   )
 
   field(:partial_caveat_info, 3,
+    type: Authzed.Api.V1.PartialCaveatInfo,
+    json_name: "partialCaveatInfo",
+    deprecated: false
+  )
+
+  field(:debug_trace, 4, type: Authzed.Api.V1.DebugInformation, json_name: "debugTrace")
+end
+
+defmodule Authzed.Api.V1.CheckBulkPermissionsRequest do
+  @moduledoc false
+
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+
+  field(:consistency, 1, type: Authzed.Api.V1.Consistency)
+
+  field(:items, 2,
+    repeated: true,
+    type: Authzed.Api.V1.CheckBulkPermissionsRequestItem,
+    deprecated: false
+  )
+end
+
+defmodule Authzed.Api.V1.CheckBulkPermissionsRequestItem do
+  @moduledoc false
+
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+
+  field(:resource, 1, type: Authzed.Api.V1.ObjectReference, deprecated: false)
+  field(:permission, 2, type: :string, deprecated: false)
+  field(:subject, 3, type: Authzed.Api.V1.SubjectReference, deprecated: false)
+  field(:context, 4, type: Google.Protobuf.Struct, deprecated: false)
+end
+
+defmodule Authzed.Api.V1.CheckBulkPermissionsResponse do
+  @moduledoc false
+
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+
+  field(:checked_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "checkedAt", deprecated: false)
+
+  field(:pairs, 2,
+    repeated: true,
+    type: Authzed.Api.V1.CheckBulkPermissionsPair,
+    deprecated: false
+  )
+end
+
+defmodule Authzed.Api.V1.CheckBulkPermissionsPair do
+  @moduledoc false
+
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+
+  oneof(:response, 0)
+
+  field(:request, 1, type: Authzed.Api.V1.CheckBulkPermissionsRequestItem)
+  field(:item, 2, type: Authzed.Api.V1.CheckBulkPermissionsResponseItem, oneof: 0)
+  field(:error, 3, type: Google.Rpc.Status, oneof: 0)
+end
+
+defmodule Authzed.Api.V1.CheckBulkPermissionsResponseItem do
+  @moduledoc false
+
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+
+  field(:permissionship, 1,
+    type: Authzed.Api.V1.CheckPermissionResponse.Permissionship,
+    enum: true,
+    deprecated: false
+  )
+
+  field(:partial_caveat_info, 2,
     type: Authzed.Api.V1.PartialCaveatInfo,
     json_name: "partialCaveatInfo",
     deprecated: false
@@ -437,6 +515,12 @@ defmodule Authzed.Api.V1.PermissionsService.Service do
     :CheckPermission,
     Authzed.Api.V1.CheckPermissionRequest,
     Authzed.Api.V1.CheckPermissionResponse
+  )
+
+  rpc(
+    :CheckBulkPermissions,
+    Authzed.Api.V1.CheckBulkPermissionsRequest,
+    Authzed.Api.V1.CheckBulkPermissionsResponse
   )
 
   rpc(

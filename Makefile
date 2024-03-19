@@ -15,6 +15,9 @@ generate:
 	@echo "Removing generated files.."
 	rm -rf authzed
 	@echo "File cleanup completed"
+	@echo "Formating files.."
+	mix format
+	@echo "Formating completed"
 
 start-infra:
 	@echo "Stopping and removing old containers.."

@@ -32,7 +32,7 @@ defmodule Authzed.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:grpc, "~> 0.7.0"},
+      {:grpc, "~> 0.8.1"},
       {:protobuf, "~> 0.12.0"},
       {:google_protos, "~> 0.3.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}

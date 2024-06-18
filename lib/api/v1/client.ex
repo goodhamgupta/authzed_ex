@@ -11,23 +11,34 @@ defmodule Authzed.Api.V1.Client do
 
   defstruct @keys
 
-  def new(endpoint, auth_header) when is_list(auth_header) do
-    {:ok, channel} = GRPC.Stub.connect(endpoint, headers: auth_header)
+  @doc """
+  Establishes a gRPC connection with the Authzed service.
+
+  ## Options:
+
+  https://hexdocs.pm/grpc/GRPC.Stub.html#connect/2-options
+  """
+  def new(endpoint, auth_header, opts \\ []) when is_list(auth_header) do
+    grpc_opts = Keyword.merge(opts, headers: auth_header)
+    {:ok, channel} = GRPC.Stub.connect(endpoint, grpc_opts)
     %__MODULE__{channel: channel}
   end
 
-  def new(endpoint, ssl_cred) do
-    {:ok, channel} = GRPC.Stub.connect(endpoint, cred: ssl_cred)
+  def new(endpoint, ssl_cred, opts \\ []) do
+    grpc_opts = Keyword.merge(opts, cred: ssl_cred)
+    {:ok, channel} = GRPC.Stub.connect(endpoint, grpc_opts)
     %__MODULE__{channel: channel}
   end
 
-  def new(host, port, auth_header) when is_list(auth_header) do
-    {:ok, channel} = GRPC.Stub.connect(host, port, headers: auth_header)
+  def new(host, port, auth_header, opts \\ []) when is_list(auth_header) do
+    grpc_opts = Keyword.merge(opts, headers: auth_header)
+    {:ok, channel} = GRPC.Stub.connect(host, port, grpc_opts)
     %__MODULE__{channel: channel}
   end
 
-  def new(host, port, ssl_cred) do
-    {:ok, channel} = GRPC.Stub.connect(host, port, cred: ssl_cred)
+  def new(host, port, ssl_cred, opts \\ []) do
+    grpc_opts = Keyword.merge(opts, cred: ssl_cred)
+    {:ok, channel} = GRPC.Stub.connect(host, port, grpc_opts)
     %__MODULE__{channel: channel}
   end
 end

@@ -18,25 +18,27 @@ defmodule Authzed.Api.V1.Client do
 
   https://hexdocs.pm/grpc/GRPC.Stub.html#connect/2-options
   """
-  def new(endpoint, auth_header, opts \\ []) when is_list(auth_header) do
+  def new(endpoint, auth_header_or_ssl_cred, opts \\ [])
+
+  def new(endpoint, auth_header, opts) when is_list(auth_header) do
     grpc_opts = Keyword.merge(opts, headers: auth_header)
     {:ok, channel} = GRPC.Stub.connect(endpoint, grpc_opts)
     %__MODULE__{channel: channel}
   end
 
-  def new(endpoint, ssl_cred, opts \\ []) do
+  def new(endpoint, ssl_cred, opts) do
     grpc_opts = Keyword.merge(opts, cred: ssl_cred)
     {:ok, channel} = GRPC.Stub.connect(endpoint, grpc_opts)
     %__MODULE__{channel: channel}
   end
 
-  def new(host, port, auth_header, opts \\ []) when is_list(auth_header) do
+  def new(host, port, auth_header, opts) when is_list(auth_header) do
     grpc_opts = Keyword.merge(opts, headers: auth_header)
     {:ok, channel} = GRPC.Stub.connect(host, port, grpc_opts)
     %__MODULE__{channel: channel}
   end
 
-  def new(host, port, ssl_cred, opts \\ []) do
+  def new(host, port, ssl_cred, opts) do
     grpc_opts = Keyword.merge(opts, cred: ssl_cred)
     {:ok, channel} = GRPC.Stub.connect(host, port, grpc_opts)
     %__MODULE__{channel: channel}

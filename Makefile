@@ -11,6 +11,9 @@ generate:
 	@echo "Generation successful"
 	@echo "Copying files to authzed/api folder..."
 	cp -r authzed/api/* lib/api/
+	@echo "Copying files to google/rpc folder..."
+	@mkdir -p lib/google
+	cp -r google/rpc lib/google/
 	@echo "Files moved successfully"
 	@echo "Removing generated files.."
 	rm -rf authzed

@@ -93,7 +93,7 @@ jobs:
         run: |
           mix escript.install hex protobuf --force
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH
-      - uses: "bufbuild/buf-setup-action@v1.29.0"
+      - uses: "bufbuild/buf-action@v1"
       - name: "Generate & Diff Protos"
         run: |
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH

@@ -1,7 +1,7 @@
 defmodule Authzed.MixProject do
   use Mix.Project
 
-  @version "0.0.12"
+  @version "1.0.0"
   @repo_url "https://github.com/goodhamgupta/authzed_ex/"
 
   def project do

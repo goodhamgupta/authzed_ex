@@ -93,12 +93,16 @@ jobs:
         run: |
           mix escript.install hex protobuf --force
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH
-      - uses: "bufbuild/buf-setup-action@v1.29.0"
+      - uses: "bufbuild/buf-action@v1"
+        with:
+          setup_only: true
       - name: "Generate & Diff Protos"
         run: |
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH
           ./buf.gen.yaml
           mix format authzed/**/*.ex
+          mix format google/rpc/**/*.ex
           bash -c '[[ $(diff -qr authzed/api lib/api | grep "Only in authzed") -eq 0 ]]'
+          bash -c '[[ $(diff -qr google/rpc lib/google/rpc | grep "Only in google") -eq 0 ]]'
           mix format
           rm -rf authzed

@@ -1,8 +1,12 @@
-#!/usr/bin/env -S buf generate buf.build/authzed/api:v1.33.0 --template
+#!/usr/bin/env -S buf generate --template
 ---
-version: "v1"
+version: "v2"
 plugins:
-  - name: "elixir"
+  - local: "protoc-gen-elixir"
     out: "."
     opt:
       - plugins=grpc
+inputs:
+  - module: "buf.build/authzed/api:v1.33.0 "
+  - module: "buf.build/googleapis/googleapis"
+    

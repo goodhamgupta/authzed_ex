@@ -27,3 +27,4 @@ authzed_ex-*.tar
 
 # Ignore buf generated schema
 authzed/*
+google/*

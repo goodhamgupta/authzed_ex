@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V1.ErrorReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:ERROR_REASON_UNSPECIFIED, 0)
   field(:ERROR_REASON_SCHEMA_PARSE_ERROR, 1)
@@ -29,4 +29,7 @@ defmodule Authzed.Api.V1.ErrorReason do
   field(:ERROR_REASON_INVALID_FILTER, 23)
   field(:ERROR_REASON_INMEMORY_TOO_MANY_CONCURRENT_UPDATES, 24)
   field(:ERROR_REASON_EMPTY_PRECONDITION, 25)
+  field(:ERROR_REASON_COUNTER_ALREADY_REGISTERED, 26)
+  field(:ERROR_REASON_COUNTER_NOT_REGISTERED, 27)
+  field(:ERROR_REASON_WILDCARD_NOT_ALLOWED, 28)
 end

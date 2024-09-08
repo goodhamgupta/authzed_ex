@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V1.WatchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:optional_object_types, 1,
     repeated: true,
@@ -25,7 +25,7 @@ end
 defmodule Authzed.Api.V1.WatchResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:updates, 1, repeated: true, type: Authzed.Api.V1.RelationshipUpdate)
   field(:changes_through, 2, type: Authzed.Api.V1.ZedToken, json_name: "changesThrough")

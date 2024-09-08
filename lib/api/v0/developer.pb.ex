@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V0.LookupShareResponse.LookupStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:UNKNOWN_REFERENCE, 0)
   field(:FAILED_TO_LOOKUP, 1)
@@ -12,7 +12,7 @@ end
 defmodule Authzed.Api.V0.DeveloperError.Source do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:UNKNOWN_SOURCE, 0)
   field(:SCHEMA, 1)
@@ -25,7 +25,7 @@ end
 defmodule Authzed.Api.V0.DeveloperError.ErrorKind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:UNKNOWN_KIND, 0)
   field(:PARSE_ERROR, 1)
@@ -42,7 +42,7 @@ end
 defmodule Authzed.Api.V0.FormatSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:schema, 1, type: :string)
 end
@@ -50,7 +50,7 @@ end
 defmodule Authzed.Api.V0.FormatSchemaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:error, 1, type: Authzed.Api.V0.DeveloperError)
   field(:formatted_schema, 2, type: :string, json_name: "formattedSchema")
@@ -59,7 +59,7 @@ end
 defmodule Authzed.Api.V0.UpgradeSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:namespace_configs, 1, repeated: true, type: :string, json_name: "namespaceConfigs")
 end
@@ -67,7 +67,7 @@ end
 defmodule Authzed.Api.V0.UpgradeSchemaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:error, 1, type: Authzed.Api.V0.DeveloperError)
   field(:upgraded_schema, 2, type: :string, json_name: "upgradedSchema")
@@ -76,7 +76,7 @@ end
 defmodule Authzed.Api.V0.ShareRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:schema, 1, type: :string)
   field(:relationships_yaml, 2, type: :string, json_name: "relationshipsYaml")
@@ -87,7 +87,7 @@ end
 defmodule Authzed.Api.V0.ShareResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:share_reference, 1, type: :string, json_name: "shareReference")
 end
@@ -95,7 +95,7 @@ end
 defmodule Authzed.Api.V0.LookupShareRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:share_reference, 1, type: :string, json_name: "shareReference")
 end
@@ -103,7 +103,7 @@ end
 defmodule Authzed.Api.V0.LookupShareResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:status, 1, type: Authzed.Api.V0.LookupShareResponse.LookupStatus, enum: true)
   field(:schema, 2, type: :string)
@@ -115,7 +115,7 @@ end
 defmodule Authzed.Api.V0.RequestContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:schema, 1, type: :string)
   field(:relationships, 2, repeated: true, type: Authzed.Api.V0.RelationTuple)
@@ -124,7 +124,7 @@ end
 defmodule Authzed.Api.V0.EditCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:context, 1, type: Authzed.Api.V0.RequestContext)
 
@@ -138,7 +138,7 @@ end
 defmodule Authzed.Api.V0.EditCheckResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:relationship, 1, type: Authzed.Api.V0.RelationTuple)
   field(:is_member, 2, type: :bool, json_name: "isMember")
@@ -148,7 +148,7 @@ end
 defmodule Authzed.Api.V0.EditCheckResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:request_errors, 1,
     repeated: true,
@@ -166,7 +166,7 @@ end
 defmodule Authzed.Api.V0.ValidateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:context, 1, type: Authzed.Api.V0.RequestContext)
   field(:validation_yaml, 3, type: :string, json_name: "validationYaml")
@@ -177,7 +177,7 @@ end
 defmodule Authzed.Api.V0.ValidateResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:request_errors, 1,
     repeated: true,
@@ -197,7 +197,7 @@ end
 defmodule Authzed.Api.V0.DeveloperError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:message, 1, type: :string)
   field(:line, 2, type: :uint32)

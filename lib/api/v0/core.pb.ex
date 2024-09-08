@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V0.RelationTuple do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:object_and_relation, 1,
     type: Authzed.Api.V0.ObjectAndRelation,
@@ -15,7 +15,7 @@ end
 defmodule Authzed.Api.V0.ObjectAndRelation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:namespace, 1, type: :string, deprecated: false)
   field(:object_id, 2, type: :string, json_name: "objectId", deprecated: false)
@@ -25,7 +25,7 @@ end
 defmodule Authzed.Api.V0.RelationReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:namespace, 1, type: :string, deprecated: false)
   field(:relation, 3, type: :string, deprecated: false)
@@ -34,7 +34,7 @@ end
 defmodule Authzed.Api.V0.User do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   oneof(:user_oneof, 0)
 

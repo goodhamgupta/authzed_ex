@@ -39,6 +39,12 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsResponse do
     json_name: "lookupPermissionSetsRequired",
     oneof: 0
   )
+
+  field(:breaking_schema_change, 4,
+    type: Authzed.Api.Materialize.V0.BreakingSchemaChange,
+    json_name: "breakingSchemaChange",
+    oneof: 0
+  )
 end
 
 defmodule Authzed.Api.Materialize.V0.Cursor do
@@ -50,6 +56,7 @@ defmodule Authzed.Api.Materialize.V0.Cursor do
   field(:token, 4, type: Authzed.Api.V1.ZedToken)
   field(:starting_index, 5, type: :uint32, json_name: "startingIndex")
   field(:completed_members, 6, type: :bool, json_name: "completedMembers")
+  field(:starting_key, 7, type: :string, json_name: "startingKey")
 end
 
 defmodule Authzed.Api.Materialize.V0.LookupPermissionSetsRequest do
@@ -58,6 +65,7 @@ defmodule Authzed.Api.Materialize.V0.LookupPermissionSetsRequest do
   use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:limit, 1, type: :uint32)
+  field(:optional_at_revision, 2, type: Authzed.Api.V1.ZedToken, json_name: "optionalAtRevision")
 
   field(:optional_starting_after_cursor, 4,
     type: Authzed.Api.Materialize.V0.Cursor,
@@ -133,6 +141,14 @@ defmodule Authzed.Api.Materialize.V0.LookupPermissionSetsRequired do
   use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
 
   field(:required_lookup_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "requiredLookupAt")
+end
+
+defmodule Authzed.Api.Materialize.V0.BreakingSchemaChange do
+  @moduledoc false
+
+  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+
+  field(:change_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "changeAt")
 end
 
 defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsService.Service do

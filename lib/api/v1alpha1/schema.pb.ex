@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V1alpha1.ReadSchemaRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:object_definitions_names, 1,
     repeated: true,
@@ -14,7 +14,7 @@ end
 defmodule Authzed.Api.V1alpha1.ReadSchemaResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:object_definitions, 1, repeated: true, type: :string, json_name: "objectDefinitions")
 
@@ -27,7 +27,7 @@ end
 defmodule Authzed.Api.V1alpha1.WriteSchemaRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:schema, 1, type: :string, deprecated: false)
 
@@ -40,7 +40,7 @@ end
 defmodule Authzed.Api.V1alpha1.WriteSchemaResponse do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:object_definitions_names, 1,
     repeated: true,
@@ -59,7 +59,7 @@ defmodule Authzed.Api.V1alpha1.SchemaService.Service do
 
   use GRPC.Service,
     name: "authzed.api.v1alpha1.SchemaService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc(
     :ReadSchema,

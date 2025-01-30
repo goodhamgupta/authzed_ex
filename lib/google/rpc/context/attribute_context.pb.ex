@@ -1,7 +1,7 @@
 defmodule Google.Rpc.Context.AttributeContext.Peer.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:key, 1, type: :string)
   field(:value, 2, type: :string)
@@ -10,7 +10,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Peer do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:ip, 1, type: :string)
   field(:port, 2, type: :int64)
@@ -28,7 +28,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Api do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:service, 1, type: :string)
   field(:operation, 2, type: :string)
@@ -39,7 +39,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Auth do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:principal, 1, type: :string)
   field(:audiences, 2, repeated: true, type: :string)
@@ -51,7 +51,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Request.HeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:key, 1, type: :string)
   field(:value, 2, type: :string)
@@ -60,7 +60,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Request do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:id, 1, type: :string)
   field(:method, 2, type: :string)
@@ -85,7 +85,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Response.HeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:key, 1, type: :string)
   field(:value, 2, type: :string)
@@ -94,7 +94,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Response do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:code, 1, type: :int64)
   field(:size, 2, type: :int64)
@@ -112,7 +112,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Resource.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:key, 1, type: :string)
   field(:value, 2, type: :string)
@@ -121,7 +121,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Resource.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:key, 1, type: :string)
   field(:value, 2, type: :string)
@@ -130,7 +130,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext.Resource do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:service, 1, type: :string)
   field(:name, 2, type: :string)
@@ -161,7 +161,7 @@ end
 defmodule Google.Rpc.Context.AttributeContext do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:origin, 7, type: Google.Rpc.Context.AttributeContext.Peer)
   field(:source, 1, type: Google.Rpc.Context.AttributeContext.Peer)

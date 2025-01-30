@@ -1,7 +1,7 @@
 defmodule Authzed.Api.V1.ErrorReason do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field(:ERROR_REASON_UNSPECIFIED, 0)
   field(:ERROR_REASON_SCHEMA_PARSE_ERROR, 1)
@@ -32,4 +32,5 @@ defmodule Authzed.Api.V1.ErrorReason do
   field(:ERROR_REASON_COUNTER_ALREADY_REGISTERED, 26)
   field(:ERROR_REASON_COUNTER_NOT_REGISTERED, 27)
   field(:ERROR_REASON_WILDCARD_NOT_ALLOWED, 28)
+  field(:ERROR_REASON_TRANSACTION_METADATA_TOO_LARGE, 29)
 end

@@ -34,6 +34,8 @@ defmodule Authzed.Api.V1.Relationship do
     json_name: "optionalCaveat",
     deprecated: false
   )
+
+  field(:optional_expires_at, 5, type: Google.Protobuf.Timestamp, json_name: "optionalExpiresAt")
 end
 
 defmodule Authzed.Api.V1.ContextualizedCaveat do

@@ -29,6 +29,11 @@ defmodule Authzed.Api.V1.WatchResponse do
 
   field(:updates, 1, repeated: true, type: Authzed.Api.V1.RelationshipUpdate)
   field(:changes_through, 2, type: Authzed.Api.V1.ZedToken, json_name: "changesThrough")
+
+  field(:optional_transaction_metadata, 3,
+    type: Google.Protobuf.Struct,
+    json_name: "optionalTransactionMetadata"
+  )
 end
 
 defmodule Authzed.Api.V1.WatchService.Service do

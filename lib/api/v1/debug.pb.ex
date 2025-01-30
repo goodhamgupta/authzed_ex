@@ -86,6 +86,10 @@ defmodule Authzed.Api.V1.CheckDebugTrace do
     json_name: "subProblems",
     oneof: 0
   )
+
+  field(:optional_expires_at, 10, type: Google.Protobuf.Timestamp, json_name: "optionalExpiresAt")
+  field(:trace_operation_id, 11, type: :string, json_name: "traceOperationId")
+  field(:source, 12, type: :string)
 end
 
 defmodule Authzed.Api.V1.CaveatEvalInfo do

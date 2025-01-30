@@ -181,6 +181,12 @@ defmodule Authzed.Api.V1.WriteRelationshipsRequest do
     json_name: "optionalPreconditions",
     deprecated: false
   )
+
+  field(:optional_transaction_metadata, 3,
+    type: Google.Protobuf.Struct,
+    json_name: "optionalTransactionMetadata",
+    deprecated: false
+  )
 end
 
 defmodule Authzed.Api.V1.WriteRelationshipsResponse do
@@ -214,6 +220,12 @@ defmodule Authzed.Api.V1.DeleteRelationshipsRequest do
   field(:optional_allow_partial_deletions, 4,
     type: :bool,
     json_name: "optionalAllowPartialDeletions"
+  )
+
+  field(:optional_transaction_metadata, 5,
+    type: Google.Protobuf.Struct,
+    json_name: "optionalTransactionMetadata",
+    deprecated: false
   )
 end
 
@@ -264,6 +276,7 @@ defmodule Authzed.Api.V1.CheckPermissionResponse do
   )
 
   field(:debug_trace, 4, type: Authzed.Api.V1.DebugInformation, json_name: "debugTrace")
+  field(:optional_expires_at, 5, type: Google.Protobuf.Timestamp, json_name: "optionalExpiresAt")
 end
 
 defmodule Authzed.Api.V1.CheckBulkPermissionsRequest do
@@ -278,6 +291,8 @@ defmodule Authzed.Api.V1.CheckBulkPermissionsRequest do
     type: Authzed.Api.V1.CheckBulkPermissionsRequestItem,
     deprecated: false
   )
+
+  field(:with_tracing, 3, type: :bool, json_name: "withTracing")
 end
 
 defmodule Authzed.Api.V1.CheckBulkPermissionsRequestItem do
@@ -333,6 +348,8 @@ defmodule Authzed.Api.V1.CheckBulkPermissionsResponseItem do
     json_name: "partialCaveatInfo",
     deprecated: false
   )
+
+  field(:debug_trace, 3, type: Authzed.Api.V1.DebugInformation, json_name: "debugTrace")
 end
 
 defmodule Authzed.Api.V1.ExpandPermissionTreeRequest do
@@ -488,6 +505,46 @@ defmodule Authzed.Api.V1.ResolvedSubject do
   )
 end
 
+defmodule Authzed.Api.V1.ImportBulkRelationshipsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field(:relationships, 1, repeated: true, type: Authzed.Api.V1.Relationship, deprecated: false)
+end
+
+defmodule Authzed.Api.V1.ImportBulkRelationshipsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field(:num_loaded, 1, type: :uint64, json_name: "numLoaded")
+end
+
+defmodule Authzed.Api.V1.ExportBulkRelationshipsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field(:consistency, 1, type: Authzed.Api.V1.Consistency)
+  field(:optional_limit, 2, type: :uint32, json_name: "optionalLimit", deprecated: false)
+  field(:optional_cursor, 3, type: Authzed.Api.V1.Cursor, json_name: "optionalCursor")
+
+  field(:optional_relationship_filter, 4,
+    type: Authzed.Api.V1.RelationshipFilter,
+    json_name: "optionalRelationshipFilter"
+  )
+end
+
+defmodule Authzed.Api.V1.ExportBulkRelationshipsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field(:after_result_cursor, 1, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
+  field(:relationships, 2, repeated: true, type: Authzed.Api.V1.Relationship)
+end
+
 defmodule Authzed.Api.V1.PermissionsService.Service do
   @moduledoc false
 
@@ -539,6 +596,18 @@ defmodule Authzed.Api.V1.PermissionsService.Service do
     :LookupSubjects,
     Authzed.Api.V1.LookupSubjectsRequest,
     stream(Authzed.Api.V1.LookupSubjectsResponse)
+  )
+
+  rpc(
+    :ImportBulkRelationships,
+    stream(Authzed.Api.V1.ImportBulkRelationshipsRequest),
+    Authzed.Api.V1.ImportBulkRelationshipsResponse
+  )
+
+  rpc(
+    :ExportBulkRelationships,
+    Authzed.Api.V1.ExportBulkRelationshipsRequest,
+    stream(Authzed.Api.V1.ExportBulkRelationshipsResponse)
   )
 end
 

@@ -34,6 +34,15 @@ defmodule Google.Rpc.DebugInfo do
   field(:detail, 2, type: :string)
 end
 
+defmodule Google.Rpc.QuotaFailure.Violation.QuotaDimensionsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field(:key, 1, type: :string)
+  field(:value, 2, type: :string)
+end
+
 defmodule Google.Rpc.QuotaFailure.Violation do
   @moduledoc false
 
@@ -41,6 +50,24 @@ defmodule Google.Rpc.QuotaFailure.Violation do
 
   field(:subject, 1, type: :string)
   field(:description, 2, type: :string)
+  field(:api_service, 3, type: :string, json_name: "apiService")
+  field(:quota_metric, 4, type: :string, json_name: "quotaMetric")
+  field(:quota_id, 5, type: :string, json_name: "quotaId")
+
+  field(:quota_dimensions, 6,
+    repeated: true,
+    type: Google.Rpc.QuotaFailure.Violation.QuotaDimensionsEntry,
+    json_name: "quotaDimensions",
+    map: true
+  )
+
+  field(:quota_value, 7, type: :int64, json_name: "quotaValue")
+
+  field(:future_quota_value, 8,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "futureQuotaValue"
+  )
 end
 
 defmodule Google.Rpc.QuotaFailure do

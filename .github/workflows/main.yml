@@ -16,7 +16,7 @@ jobs:
       matrix:
         include:
           - pair:
-              elixir: 1.14.0
+              elixir: 1.15.0
               otp: 24.0
             lint: lint
     steps:
@@ -61,7 +61,7 @@ jobs:
       matrix:
         include:
           - pair:
-              elixir: 1.14.0
+              elixir: 1.15.0
               otp: 24.0
             lint: lint
     steps:

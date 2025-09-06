@@ -1,14 +1,14 @@
 defmodule Authzed.MixProject do
   use Mix.Project
 
-  @version "1.5.0"
+  @version "1.6.0"
   @repo_url "https://github.com/goodhamgupta/authzed_ex/"
 
   def project do
     [
       app: :authzed,
       version: @version,
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 
@@ -32,8 +32,8 @@ defmodule Authzed.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:grpc, "~> 0.9.0"},
-      {:protobuf, "~> 0.14.0"},
+      {:grpc, "~> 0.10.0"},
+      {:protobuf, "~> 0.15.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end

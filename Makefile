@@ -11,12 +11,10 @@ generate:
 	@echo "Generation successful"
 	@echo "Copying files to authzed/api folder..."
 	cp -r authzed/api/* lib/api/
-	@echo "Copying files to google/rpc folder..."
-	@mkdir -p lib/google
-	cp -r google/rpc lib/google/
+	@echo "Google RPC modules are provided by the googleapis Hex package (grpc dependency)."
 	@echo "Files moved successfully"
 	@echo "Removing generated files.."
-	rm -rf authzed
+	rm -rf authzed google
 	@echo "File cleanup completed"
 	@echo "Formating files.."
 	mix format

@@ -41,6 +41,9 @@ defmodule Authzed do
   end
   ```
 
+  Add `{GRPC.Client.Supervisor, []}` to your application's supervision tree so the
+  gRPC client can open connections (see [`GRPC.Client.Supervisor`](https://hexdocs.pm/grpc/GRPC.Client.Supervisor.html)).
+
   ### Initializing a client
 
   In order to successfully connect, you will have to provide a [Bearer Token] with your own API Token from the [Authzed dashboard] in place of `somerandomkeyhere` in the following example:

@@ -1,3 +1,18 @@
+defmodule Authzed.Api.V1.WatchKind do
+  @moduledoc false
+
+  use Protobuf,
+    enum: true,
+    full_name: "authzed.api.v1.WatchKind",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field(:WATCH_KIND_UNSPECIFIED, 0)
+  field(:WATCH_KIND_INCLUDE_RELATIONSHIP_UPDATES, 1)
+  field(:WATCH_KIND_INCLUDE_SCHEMA_UPDATES, 2)
+  field(:WATCH_KIND_INCLUDE_CHECKPOINTS, 3)
+end
+
 defmodule Authzed.Api.V1.WatchRequest do
   @moduledoc false
 
@@ -23,6 +38,13 @@ defmodule Authzed.Api.V1.WatchRequest do
     type: Authzed.Api.V1.RelationshipFilter,
     json_name: "optionalRelationshipFilters"
   )
+
+  field(:optional_update_kinds, 4,
+    repeated: true,
+    type: Authzed.Api.V1.WatchKind,
+    json_name: "optionalUpdateKinds",
+    enum: true
+  )
 end
 
 defmodule Authzed.Api.V1.WatchResponse do
@@ -39,6 +61,15 @@ defmodule Authzed.Api.V1.WatchResponse do
   field(:optional_transaction_metadata, 3,
     type: Google.Protobuf.Struct,
     json_name: "optionalTransactionMetadata"
+  )
+
+  field(:schema_updated, 4, type: :bool, json_name: "schemaUpdated")
+  field(:is_checkpoint, 5, type: :bool, json_name: "isCheckpoint")
+
+  field(:full_revision_metadata, 6,
+    repeated: true,
+    type: Google.Protobuf.Struct,
+    json_name: "fullRevisionMetadata"
   )
 end
 

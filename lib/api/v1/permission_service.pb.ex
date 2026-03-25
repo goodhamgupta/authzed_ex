@@ -294,6 +294,8 @@ defmodule Authzed.Api.V1.DeleteRelationshipsResponse do
     json_name: "deletionProgress",
     enum: true
   )
+
+  field(:relationships_deleted_count, 3, type: :uint64, json_name: "relationshipsDeletedCount")
 end
 
 defmodule Authzed.Api.V1.CheckPermissionRequest do

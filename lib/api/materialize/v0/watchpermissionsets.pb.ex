@@ -186,6 +186,40 @@ defmodule Authzed.Api.Materialize.V0.BreakingSchemaChange do
   field(:change_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "changeAt")
 end
 
+defmodule Authzed.Api.Materialize.V0.DownloadPermissionSetsRequest do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "authzed.api.materialize.v0.DownloadPermissionSetsRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field(:optional_at_revision, 1, type: Authzed.Api.V1.ZedToken, json_name: "optionalAtRevision")
+end
+
+defmodule Authzed.Api.Materialize.V0.File do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "authzed.api.materialize.v0.File",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field(:name, 1, type: :string)
+  field(:url, 2, type: :string)
+end
+
+defmodule Authzed.Api.Materialize.V0.DownloadPermissionSetsResponse do
+  @moduledoc false
+
+  use Protobuf,
+    full_name: "authzed.api.materialize.v0.DownloadPermissionSetsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
+
+  field(:files, 1, repeated: true, type: Authzed.Api.Materialize.V0.File)
+end
+
 defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsService.Service do
   @moduledoc false
 
@@ -203,6 +237,12 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsService.Service do
     :LookupPermissionSets,
     Authzed.Api.Materialize.V0.LookupPermissionSetsRequest,
     stream(Authzed.Api.Materialize.V0.LookupPermissionSetsResponse)
+  )
+
+  rpc(
+    :DownloadPermissionSets,
+    Authzed.Api.Materialize.V0.DownloadPermissionSetsRequest,
+    Authzed.Api.Materialize.V0.DownloadPermissionSetsResponse
   )
 end
 

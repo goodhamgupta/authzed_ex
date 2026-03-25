@@ -1,7 +1,11 @@
 defmodule Google.Rpc.ErrorInfo.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.ErrorInfo.MetadataEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:key, 1, type: :string)
   field(:value, 2, type: :string)
@@ -10,7 +14,10 @@ end
 defmodule Google.Rpc.ErrorInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.ErrorInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:reason, 1, type: :string)
   field(:domain, 2, type: :string)
@@ -20,7 +27,10 @@ end
 defmodule Google.Rpc.RetryInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.RetryInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:retry_delay, 1, type: Google.Protobuf.Duration, json_name: "retryDelay")
 end
@@ -28,7 +38,10 @@ end
 defmodule Google.Rpc.DebugInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.DebugInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:stack_entries, 1, repeated: true, type: :string, json_name: "stackEntries")
   field(:detail, 2, type: :string)
@@ -37,7 +50,11 @@ end
 defmodule Google.Rpc.QuotaFailure.Violation.QuotaDimensionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.QuotaFailure.Violation.QuotaDimensionsEntry",
+    map: true,
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:key, 1, type: :string)
   field(:value, 2, type: :string)
@@ -46,7 +63,10 @@ end
 defmodule Google.Rpc.QuotaFailure.Violation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.QuotaFailure.Violation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:subject, 1, type: :string)
   field(:description, 2, type: :string)
@@ -73,7 +93,10 @@ end
 defmodule Google.Rpc.QuotaFailure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.QuotaFailure",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:violations, 1, repeated: true, type: Google.Rpc.QuotaFailure.Violation)
 end
@@ -81,7 +104,10 @@ end
 defmodule Google.Rpc.PreconditionFailure.Violation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.PreconditionFailure.Violation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:type, 1, type: :string)
   field(:subject, 2, type: :string)
@@ -91,7 +117,10 @@ end
 defmodule Google.Rpc.PreconditionFailure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.PreconditionFailure",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:violations, 1, repeated: true, type: Google.Rpc.PreconditionFailure.Violation)
 end
@@ -99,7 +128,10 @@ end
 defmodule Google.Rpc.BadRequest.FieldViolation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.BadRequest.FieldViolation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:field, 1, type: :string)
   field(:description, 2, type: :string)
@@ -110,7 +142,10 @@ end
 defmodule Google.Rpc.BadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.BadRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:field_violations, 1,
     repeated: true,
@@ -122,7 +157,10 @@ end
 defmodule Google.Rpc.RequestInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.RequestInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:request_id, 1, type: :string, json_name: "requestId")
   field(:serving_data, 2, type: :string, json_name: "servingData")
@@ -131,7 +169,10 @@ end
 defmodule Google.Rpc.ResourceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.ResourceInfo",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:resource_type, 1, type: :string, json_name: "resourceType")
   field(:resource_name, 2, type: :string, json_name: "resourceName")
@@ -142,7 +183,10 @@ end
 defmodule Google.Rpc.Help.Link do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.Help.Link",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:description, 1, type: :string)
   field(:url, 2, type: :string)
@@ -151,7 +195,7 @@ end
 defmodule Google.Rpc.Help do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, full_name: "google.rpc.Help", protoc_gen_elixir_version: "0.16.0", syntax: :proto3
 
   field(:links, 1, repeated: true, type: Google.Rpc.Help.Link)
 end
@@ -159,7 +203,10 @@ end
 defmodule Google.Rpc.LocalizedMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "google.rpc.LocalizedMessage",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:locale, 1, type: :string)
   field(:message, 2, type: :string)

@@ -1,7 +1,11 @@
 defmodule Google.Rpc.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "google.rpc.Code",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:OK, 0)
   field(:CANCELLED, 1)

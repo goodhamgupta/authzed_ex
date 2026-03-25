@@ -1,7 +1,11 @@
 defmodule Authzed.Api.V1.ErrorReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    enum: true,
+    full_name: "authzed.api.v1.ErrorReason",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:ERROR_REASON_UNSPECIFIED, 0)
   field(:ERROR_REASON_SCHEMA_PARSE_ERROR, 1)

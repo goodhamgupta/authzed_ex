@@ -1,13 +1,19 @@
 defmodule Authzed.Api.V1.ReadSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReadSchemaRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 end
 
 defmodule Authzed.Api.V1.ReadSchemaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReadSchemaResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:schema_text, 1, type: :string, json_name: "schemaText")
   field(:read_at, 2, type: Authzed.Api.V1.ZedToken, json_name: "readAt", deprecated: false)
@@ -16,7 +22,10 @@ end
 defmodule Authzed.Api.V1.WriteSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.WriteSchemaRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:schema, 1, type: :string, deprecated: false)
 end
@@ -24,7 +33,10 @@ end
 defmodule Authzed.Api.V1.WriteSchemaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.WriteSchemaResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:written_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "writtenAt", deprecated: false)
 end
@@ -32,7 +44,10 @@ end
 defmodule Authzed.Api.V1.ReflectSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectSchemaRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
 
@@ -46,7 +61,10 @@ end
 defmodule Authzed.Api.V1.ReflectSchemaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectSchemaResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:definitions, 1, repeated: true, type: Authzed.Api.V1.ReflectionDefinition)
   field(:caveats, 2, repeated: true, type: Authzed.Api.V1.ReflectionCaveat)
@@ -56,7 +74,10 @@ end
 defmodule Authzed.Api.V1.ReflectionSchemaFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionSchemaFilter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:optional_definition_name_filter, 1,
     type: :string,
@@ -75,7 +96,10 @@ end
 defmodule Authzed.Api.V1.ReflectionDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionDefinition",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:name, 1, type: :string)
   field(:comment, 2, type: :string)
@@ -86,7 +110,10 @@ end
 defmodule Authzed.Api.V1.ReflectionCaveat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionCaveat",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:name, 1, type: :string)
   field(:comment, 2, type: :string)
@@ -97,7 +124,10 @@ end
 defmodule Authzed.Api.V1.ReflectionCaveatParameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionCaveatParameter",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:name, 1, type: :string)
   field(:type, 2, type: :string)
@@ -107,7 +137,10 @@ end
 defmodule Authzed.Api.V1.ReflectionRelation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionRelation",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:name, 1, type: :string)
   field(:comment, 2, type: :string)
@@ -123,7 +156,10 @@ end
 defmodule Authzed.Api.V1.ReflectionTypeReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionTypeReference",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof(:typeref, 0)
 
@@ -137,7 +173,10 @@ end
 defmodule Authzed.Api.V1.ReflectionPermission do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionPermission",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:name, 1, type: :string)
   field(:comment, 2, type: :string)
@@ -147,7 +186,10 @@ end
 defmodule Authzed.Api.V1.ComputablePermissionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ComputablePermissionsRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:definition_name, 2, type: :string, json_name: "definitionName")
@@ -162,7 +204,10 @@ end
 defmodule Authzed.Api.V1.ReflectionRelationReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionRelationReference",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:definition_name, 1, type: :string, json_name: "definitionName")
   field(:relation_name, 2, type: :string, json_name: "relationName")
@@ -172,7 +217,10 @@ end
 defmodule Authzed.Api.V1.ComputablePermissionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ComputablePermissionsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:permissions, 1, repeated: true, type: Authzed.Api.V1.ReflectionRelationReference)
   field(:read_at, 2, type: Authzed.Api.V1.ZedToken, json_name: "readAt")
@@ -181,7 +229,10 @@ end
 defmodule Authzed.Api.V1.DependentRelationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.DependentRelationsRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:definition_name, 2, type: :string, json_name: "definitionName")
@@ -191,7 +242,10 @@ end
 defmodule Authzed.Api.V1.DependentRelationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.DependentRelationsResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:relations, 1, repeated: true, type: Authzed.Api.V1.ReflectionRelationReference)
   field(:read_at, 2, type: Authzed.Api.V1.ZedToken, json_name: "readAt")
@@ -200,7 +254,10 @@ end
 defmodule Authzed.Api.V1.DiffSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.DiffSchemaRequest",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
   field(:comparison_schema, 2, type: :string, json_name: "comparisonSchema")
@@ -209,7 +266,10 @@ end
 defmodule Authzed.Api.V1.DiffSchemaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.DiffSchemaResponse",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:diffs, 1, repeated: true, type: Authzed.Api.V1.ReflectionSchemaDiff)
   field(:read_at, 2, type: Authzed.Api.V1.ZedToken, json_name: "readAt")
@@ -218,7 +278,10 @@ end
 defmodule Authzed.Api.V1.ReflectionRelationSubjectTypeChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionRelationSubjectTypeChange",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:relation, 1, type: Authzed.Api.V1.ReflectionRelation)
 
@@ -231,7 +294,10 @@ end
 defmodule Authzed.Api.V1.ReflectionCaveatParameterTypeChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionCaveatParameterTypeChange",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   field(:parameter, 1, type: Authzed.Api.V1.ReflectionCaveatParameter)
   field(:previous_type, 2, type: :string, json_name: "previousType")
@@ -240,7 +306,10 @@ end
 defmodule Authzed.Api.V1.ReflectionSchemaDiff do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf,
+    full_name: "authzed.api.v1.ReflectionSchemaDiff",
+    protoc_gen_elixir_version: "0.16.0",
+    syntax: :proto3
 
   oneof(:diff, 0)
 
@@ -362,7 +431,7 @@ end
 defmodule Authzed.Api.V1.SchemaService.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "authzed.api.v1.SchemaService", protoc_gen_elixir_version: "0.14.0"
+  use GRPC.Service, name: "authzed.api.v1.SchemaService", protoc_gen_elixir_version: "0.16.0"
 
   rpc(:ReadSchema, Authzed.Api.V1.ReadSchemaRequest, Authzed.Api.V1.ReadSchemaResponse)
 

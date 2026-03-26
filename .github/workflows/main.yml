@@ -20,14 +20,14 @@ jobs:
               otp: 24.0
             lint: lint
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.pair.otp}}
           elixir-version: ${{matrix.pair.elixir}}
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: |
             deps
@@ -65,14 +65,14 @@ jobs:
               otp: 24.0
             lint: lint
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.pair.otp}}
           elixir-version: ${{matrix.pair.elixir}}
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: |
             deps
@@ -80,9 +80,9 @@ jobs:
           key: ${{ runner.os }}-mix-${{matrix.pair.elixir}}-${{matrix.pair.otp}}-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
             ${{ runner.os }}-mix-
-      - uses: "arduino/setup-protoc@v1"
+      - uses: arduino/setup-protoc@v3
         with:
-          version: "3.19.4"
+          version: "34.1"
       - name: "Install Homebrew & gRPC"
         run: |
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -93,7 +93,7 @@ jobs:
         run: |
           mix escript.install hex protobuf --force
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH
-      - uses: "bufbuild/buf-action@v1"
+      - uses: bufbuild/buf-action@v1
         with:
           setup_only: true
       - name: "Generate & Diff Protos"
@@ -101,8 +101,6 @@ jobs:
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH
           ./buf.gen.yaml
           mix format authzed/**/*.ex
-          mix format google/rpc/**/*.ex
           bash -c '[[ $(diff -qr authzed/api lib/api | grep "Only in authzed") -eq 0 ]]'
-          bash -c '[[ $(diff -qr google/rpc lib/google/rpc | grep "Only in google") -eq 0 ]]'
           mix format
-          rm -rf authzed
+          rm -rf authzed google

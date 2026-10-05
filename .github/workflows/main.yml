@@ -90,8 +90,9 @@ jobs:
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install grpc protobuf
       - name: "Install protoc_gen_elixir plugin"
+        # 0.17.0 doubles the output path (elixir-protobuf/protobuf#445). Unpin once a fixed release is out.
         run: |
-          mix escript.install hex protobuf --force
+          mix escript.install hex protobuf 0.16.1 --force
           echo "/home/runner/.mix/escripts" >> $GITHUB_PATH
       - uses: bufbuild/buf-action@v1
         with:

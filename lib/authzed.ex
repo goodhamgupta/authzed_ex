@@ -36,13 +36,10 @@ defmodule Authzed do
   ```elixir
   def deps do
     [
-      {:authzed, "~> 0.0.1"}
+      {:authzed, "~> 1.8"}
     ]
   end
   ```
-
-  Add `{GRPC.Client.Supervisor, []}` to your application's supervision tree so the
-  gRPC client can open connections (see [`GRPC.Client.Supervisor`](https://hexdocs.pm/grpc/GRPC.Client.Supervisor.html)).
 
   ### Initializing a client
 

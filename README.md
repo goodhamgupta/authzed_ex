@@ -38,7 +38,7 @@ The package can be installed by adding `authzed` to your list of dependencies in
 ```elixir
 def deps do
   [
-    {:authzed, "~> 0.0.1"}
+    {:authzed, "~> 1.8"}
   ]
 end
 ```

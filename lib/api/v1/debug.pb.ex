@@ -4,7 +4,7 @@ defmodule Authzed.Api.V1.CheckDebugTrace.PermissionType do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.CheckDebugTrace.PermissionType",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:PERMISSION_TYPE_UNSPECIFIED, 0)
@@ -18,7 +18,7 @@ defmodule Authzed.Api.V1.CheckDebugTrace.Permissionship do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.CheckDebugTrace.Permissionship",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:PERMISSIONSHIP_UNSPECIFIED, 0)
@@ -33,7 +33,7 @@ defmodule Authzed.Api.V1.CaveatEvalInfo.Result do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.CaveatEvalInfo.Result",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:RESULT_UNSPECIFIED, 0)
@@ -48,7 +48,7 @@ defmodule Authzed.Api.V1.DebugInformation do
 
   use Protobuf,
     full_name: "authzed.api.v1.DebugInformation",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:check, 1, type: Authzed.Api.V1.CheckDebugTrace)
@@ -60,7 +60,7 @@ defmodule Authzed.Api.V1.CheckDebugTrace.SubProblems do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckDebugTrace.SubProblems",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:traces, 1, repeated: true, type: Authzed.Api.V1.CheckDebugTrace)
@@ -71,7 +71,7 @@ defmodule Authzed.Api.V1.CheckDebugTrace do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckDebugTrace",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:resolution, 0)
@@ -118,7 +118,7 @@ defmodule Authzed.Api.V1.CaveatEvalInfo do
 
   use Protobuf,
     full_name: "authzed.api.v1.CaveatEvalInfo",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:expression, 1, type: :string)

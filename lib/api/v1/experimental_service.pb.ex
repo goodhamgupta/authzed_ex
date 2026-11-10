@@ -3,7 +3,7 @@ defmodule Authzed.Api.V1.ExperimentalRegisterRelationshipCounterRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalRegisterRelationshipCounterRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string, deprecated: false)
@@ -20,7 +20,7 @@ defmodule Authzed.Api.V1.ExperimentalRegisterRelationshipCounterResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalRegisterRelationshipCounterResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 end
 
@@ -29,7 +29,7 @@ defmodule Authzed.Api.V1.ExperimentalCountRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalCountRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string, deprecated: false)
@@ -40,7 +40,7 @@ defmodule Authzed.Api.V1.ExperimentalCountRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalCountRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:counter_result, 0)
@@ -63,7 +63,7 @@ defmodule Authzed.Api.V1.ReadCounterValue do
 
   use Protobuf,
     full_name: "authzed.api.v1.ReadCounterValue",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:relationship_count, 1, type: :uint64, json_name: "relationshipCount")
@@ -75,7 +75,7 @@ defmodule Authzed.Api.V1.ExperimentalUnregisterRelationshipCounterRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalUnregisterRelationshipCounterRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string, deprecated: false)
@@ -86,7 +86,7 @@ defmodule Authzed.Api.V1.ExperimentalUnregisterRelationshipCounterResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalUnregisterRelationshipCounterResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 end
 
@@ -95,7 +95,7 @@ defmodule Authzed.Api.V1.BulkCheckPermissionRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkCheckPermissionRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -112,7 +112,7 @@ defmodule Authzed.Api.V1.BulkCheckPermissionRequestItem do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkCheckPermissionRequestItem",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:resource, 1, type: Authzed.Api.V1.ObjectReference, deprecated: false)
@@ -126,7 +126,7 @@ defmodule Authzed.Api.V1.BulkCheckPermissionResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkCheckPermissionResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:checked_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "checkedAt", deprecated: false)
@@ -143,7 +143,7 @@ defmodule Authzed.Api.V1.BulkCheckPermissionPair do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkCheckPermissionPair",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:response, 0)
@@ -158,7 +158,7 @@ defmodule Authzed.Api.V1.BulkCheckPermissionResponseItem do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkCheckPermissionResponseItem",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:permissionship, 1,
@@ -179,7 +179,7 @@ defmodule Authzed.Api.V1.BulkImportRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkImportRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:relationships, 1, repeated: true, type: Authzed.Api.V1.Relationship, deprecated: false)
@@ -190,7 +190,7 @@ defmodule Authzed.Api.V1.BulkImportRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkImportRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:num_loaded, 1, type: :uint64, json_name: "numLoaded")
@@ -201,7 +201,7 @@ defmodule Authzed.Api.V1.BulkExportRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkExportRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -219,7 +219,7 @@ defmodule Authzed.Api.V1.BulkExportRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.BulkExportRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:after_result_cursor, 1, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
@@ -231,7 +231,7 @@ defmodule Authzed.Api.V1.ExperimentalReflectSchemaRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalReflectSchemaRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -248,7 +248,7 @@ defmodule Authzed.Api.V1.ExperimentalReflectSchemaResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalReflectSchemaResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:definitions, 1, repeated: true, type: Authzed.Api.V1.ExpDefinition)
@@ -261,7 +261,7 @@ defmodule Authzed.Api.V1.ExpSchemaFilter do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpSchemaFilter",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:optional_definition_name_filter, 1,
@@ -283,7 +283,7 @@ defmodule Authzed.Api.V1.ExpDefinition do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpDefinition",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string)
@@ -297,7 +297,7 @@ defmodule Authzed.Api.V1.ExpCaveat do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpCaveat",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string)
@@ -311,7 +311,7 @@ defmodule Authzed.Api.V1.ExpCaveatParameter do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpCaveatParameter",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string)
@@ -324,7 +324,7 @@ defmodule Authzed.Api.V1.ExpRelation do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpRelation",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string)
@@ -343,7 +343,7 @@ defmodule Authzed.Api.V1.ExpTypeReference do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpTypeReference",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:typeref, 0)
@@ -360,7 +360,7 @@ defmodule Authzed.Api.V1.ExpPermission do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpPermission",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string)
@@ -373,7 +373,7 @@ defmodule Authzed.Api.V1.ExperimentalComputablePermissionsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalComputablePermissionsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -391,7 +391,7 @@ defmodule Authzed.Api.V1.ExpRelationReference do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpRelationReference",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:definition_name, 1, type: :string, json_name: "definitionName")
@@ -404,7 +404,7 @@ defmodule Authzed.Api.V1.ExperimentalComputablePermissionsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalComputablePermissionsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:permissions, 1, repeated: true, type: Authzed.Api.V1.ExpRelationReference)
@@ -416,7 +416,7 @@ defmodule Authzed.Api.V1.ExperimentalDependentRelationsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalDependentRelationsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -429,7 +429,7 @@ defmodule Authzed.Api.V1.ExperimentalDependentRelationsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalDependentRelationsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:relations, 1, repeated: true, type: Authzed.Api.V1.ExpRelationReference)
@@ -441,7 +441,7 @@ defmodule Authzed.Api.V1.ExperimentalDiffSchemaRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalDiffSchemaRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -453,7 +453,7 @@ defmodule Authzed.Api.V1.ExperimentalDiffSchemaResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExperimentalDiffSchemaResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:diffs, 1, repeated: true, type: Authzed.Api.V1.ExpSchemaDiff)
@@ -465,7 +465,7 @@ defmodule Authzed.Api.V1.ExpRelationSubjectTypeChange do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpRelationSubjectTypeChange",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:relation, 1, type: Authzed.Api.V1.ExpRelation)
@@ -481,7 +481,7 @@ defmodule Authzed.Api.V1.ExpCaveatParameterTypeChange do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpCaveatParameterTypeChange",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:parameter, 1, type: Authzed.Api.V1.ExpCaveatParameter)
@@ -493,7 +493,7 @@ defmodule Authzed.Api.V1.ExpSchemaDiff do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpSchemaDiff",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:diff, 0)
@@ -609,7 +609,7 @@ defmodule Authzed.Api.V1.ExperimentalService.Service do
 
   use GRPC.Service,
     name: "authzed.api.v1.ExperimentalService",
-    protoc_gen_elixir_version: "0.16.0"
+    protoc_gen_elixir_version: "0.17.1"
 
   rpc(
     :BulkImportRelationships,

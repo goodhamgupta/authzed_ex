@@ -7,4 +7,4 @@ plugins:
     opt:
       - plugins=grpc
 inputs:
-  - module: "buf.build/authzed/api:v1.45.4 "
+  - module: "buf.build/authzed/api:v1.57.0 "

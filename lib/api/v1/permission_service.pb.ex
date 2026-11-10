@@ -4,7 +4,7 @@ defmodule Authzed.Api.V1.LookupPermissionship do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.LookupPermissionship",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:LOOKUP_PERMISSIONSHIP_UNSPECIFIED, 0)
@@ -18,7 +18,7 @@ defmodule Authzed.Api.V1.Precondition.Operation do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.Precondition.Operation",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:OPERATION_UNSPECIFIED, 0)
@@ -32,7 +32,7 @@ defmodule Authzed.Api.V1.DeleteRelationshipsResponse.DeletionProgress do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.DeleteRelationshipsResponse.DeletionProgress",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:DELETION_PROGRESS_UNSPECIFIED, 0)
@@ -46,7 +46,7 @@ defmodule Authzed.Api.V1.CheckPermissionResponse.Permissionship do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.CheckPermissionResponse.Permissionship",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:PERMISSIONSHIP_UNSPECIFIED, 0)
@@ -61,7 +61,7 @@ defmodule Authzed.Api.V1.LookupSubjectsRequest.WildcardOption do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.LookupSubjectsRequest.WildcardOption",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:WILDCARD_OPTION_UNSPECIFIED, 0)
@@ -74,7 +74,7 @@ defmodule Authzed.Api.V1.Consistency do
 
   use Protobuf,
     full_name: "authzed.api.v1.Consistency",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:requirement, 0)
@@ -111,7 +111,7 @@ defmodule Authzed.Api.V1.RelationshipFilter do
 
   use Protobuf,
     full_name: "authzed.api.v1.RelationshipFilter",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:resource_type, 1, type: :string, json_name: "resourceType", deprecated: false)
@@ -141,7 +141,7 @@ defmodule Authzed.Api.V1.SubjectFilter.RelationFilter do
 
   use Protobuf,
     full_name: "authzed.api.v1.SubjectFilter.RelationFilter",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:relation, 1, type: :string, deprecated: false)
@@ -152,7 +152,7 @@ defmodule Authzed.Api.V1.SubjectFilter do
 
   use Protobuf,
     full_name: "authzed.api.v1.SubjectFilter",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:subject_type, 1, type: :string, json_name: "subjectType", deprecated: false)
@@ -169,7 +169,7 @@ defmodule Authzed.Api.V1.ReadRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ReadRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -189,7 +189,7 @@ defmodule Authzed.Api.V1.ReadRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ReadRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:read_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "readAt", deprecated: false)
@@ -202,7 +202,7 @@ defmodule Authzed.Api.V1.Precondition do
 
   use Protobuf,
     full_name: "authzed.api.v1.Precondition",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:operation, 1, type: Authzed.Api.V1.Precondition.Operation, enum: true, deprecated: false)
@@ -214,7 +214,7 @@ defmodule Authzed.Api.V1.WriteRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.WriteRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:updates, 1, repeated: true, type: Authzed.Api.V1.RelationshipUpdate, deprecated: false)
@@ -238,7 +238,7 @@ defmodule Authzed.Api.V1.WriteRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.WriteRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:written_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "writtenAt")
@@ -249,7 +249,7 @@ defmodule Authzed.Api.V1.DeleteRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.DeleteRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:relationship_filter, 1,
@@ -277,6 +277,8 @@ defmodule Authzed.Api.V1.DeleteRelationshipsRequest do
     json_name: "optionalTransactionMetadata",
     deprecated: false
   )
+
+  field(:optional_cursor, 6, type: Authzed.Api.V1.Cursor, json_name: "optionalCursor")
 end
 
 defmodule Authzed.Api.V1.DeleteRelationshipsResponse do
@@ -284,7 +286,7 @@ defmodule Authzed.Api.V1.DeleteRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.DeleteRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:deleted_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "deletedAt")
@@ -296,6 +298,7 @@ defmodule Authzed.Api.V1.DeleteRelationshipsResponse do
   )
 
   field(:relationships_deleted_count, 3, type: :uint64, json_name: "relationshipsDeletedCount")
+  field(:after_result_cursor, 4, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
 end
 
 defmodule Authzed.Api.V1.CheckPermissionRequest do
@@ -303,7 +306,7 @@ defmodule Authzed.Api.V1.CheckPermissionRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckPermissionRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -319,7 +322,7 @@ defmodule Authzed.Api.V1.CheckPermissionResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckPermissionResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:checked_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "checkedAt", deprecated: false)
@@ -345,7 +348,7 @@ defmodule Authzed.Api.V1.CheckBulkPermissionsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckBulkPermissionsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -364,7 +367,7 @@ defmodule Authzed.Api.V1.CheckBulkPermissionsRequestItem do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckBulkPermissionsRequestItem",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:resource, 1, type: Authzed.Api.V1.ObjectReference, deprecated: false)
@@ -378,7 +381,7 @@ defmodule Authzed.Api.V1.CheckBulkPermissionsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckBulkPermissionsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:checked_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "checkedAt", deprecated: false)
@@ -395,7 +398,7 @@ defmodule Authzed.Api.V1.CheckBulkPermissionsPair do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckBulkPermissionsPair",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:response, 0)
@@ -410,7 +413,7 @@ defmodule Authzed.Api.V1.CheckBulkPermissionsResponseItem do
 
   use Protobuf,
     full_name: "authzed.api.v1.CheckBulkPermissionsResponseItem",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:permissionship, 1,
@@ -433,7 +436,7 @@ defmodule Authzed.Api.V1.ExpandPermissionTreeRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpandPermissionTreeRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -446,7 +449,7 @@ defmodule Authzed.Api.V1.ExpandPermissionTreeResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExpandPermissionTreeResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:expanded_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "expandedAt")
@@ -458,7 +461,7 @@ defmodule Authzed.Api.V1.LookupResourcesRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.LookupResourcesRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -474,6 +477,7 @@ defmodule Authzed.Api.V1.LookupResourcesRequest do
   field(:context, 5, type: Google.Protobuf.Struct, deprecated: false)
   field(:optional_limit, 6, type: :uint32, json_name: "optionalLimit", deprecated: false)
   field(:optional_cursor, 7, type: Authzed.Api.V1.Cursor, json_name: "optionalCursor")
+  field(:with_debug, 8, type: :bool, json_name: "withDebug")
 end
 
 defmodule Authzed.Api.V1.LookupResourcesResponse do
@@ -481,7 +485,7 @@ defmodule Authzed.Api.V1.LookupResourcesResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.LookupResourcesResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:looked_up_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "lookedUpAt")
@@ -507,7 +511,7 @@ defmodule Authzed.Api.V1.LookupSubjectsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.LookupSubjectsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -543,7 +547,7 @@ defmodule Authzed.Api.V1.LookupSubjectsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.LookupSubjectsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:looked_up_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "lookedUpAt")
@@ -584,7 +588,7 @@ defmodule Authzed.Api.V1.ResolvedSubject do
 
   use Protobuf,
     full_name: "authzed.api.v1.ResolvedSubject",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:subject_object_id, 1, type: :string, json_name: "subjectObjectId")
@@ -607,7 +611,7 @@ defmodule Authzed.Api.V1.ImportBulkRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ImportBulkRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:relationships, 1, repeated: true, type: Authzed.Api.V1.Relationship, deprecated: false)
@@ -618,7 +622,7 @@ defmodule Authzed.Api.V1.ImportBulkRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ImportBulkRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:num_loaded, 1, type: :uint64, json_name: "numLoaded")
@@ -629,7 +633,7 @@ defmodule Authzed.Api.V1.ExportBulkRelationshipsRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExportBulkRelationshipsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:consistency, 1, type: Authzed.Api.V1.Consistency)
@@ -647,7 +651,7 @@ defmodule Authzed.Api.V1.ExportBulkRelationshipsResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.ExportBulkRelationshipsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:after_result_cursor, 1, type: Authzed.Api.V1.Cursor, json_name: "afterResultCursor")
@@ -657,7 +661,7 @@ end
 defmodule Authzed.Api.V1.PermissionsService.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "authzed.api.v1.PermissionsService", protoc_gen_elixir_version: "0.16.0"
+  use GRPC.Service, name: "authzed.api.v1.PermissionsService", protoc_gen_elixir_version: "0.17.1"
 
   rpc(
     :ReadRelationships,

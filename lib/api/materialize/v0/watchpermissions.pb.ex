@@ -4,7 +4,7 @@ defmodule Authzed.Api.Materialize.V0.PermissionChange.Permissionship do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.materialize.v0.PermissionChange.Permissionship",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:PERMISSIONSHIP_UNSPECIFIED, 0)
@@ -18,7 +18,7 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionsRequest do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.WatchPermissionsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:permissions, 1, repeated: true, type: Authzed.Api.Materialize.V0.WatchedPermission)
@@ -34,7 +34,7 @@ defmodule Authzed.Api.Materialize.V0.WatchedPermission do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.WatchedPermission",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:resource_type, 1, type: :string, json_name: "resourceType")
@@ -48,7 +48,7 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionsResponse do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.WatchPermissionsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:response, 0)
@@ -67,7 +67,7 @@ defmodule Authzed.Api.Materialize.V0.PermissionChange do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.PermissionChange",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:revision, 1, type: Authzed.Api.V1.ZedToken)
@@ -86,7 +86,7 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionsService.Service do
 
   use GRPC.Service,
     name: "authzed.api.materialize.v0.WatchPermissionsService",
-    protoc_gen_elixir_version: "0.16.0"
+    protoc_gen_elixir_version: "0.17.1"
 
   rpc(
     :WatchPermissions,

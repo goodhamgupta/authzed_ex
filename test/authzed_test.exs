@@ -18,8 +18,6 @@ defmodule AuthzedTest do
   alias Authzed.Api.V1.GRPCUtil
 
   setup_all do
-    {:ok, _} = GRPC.Client.Supervisor.start_link([])
-
     {:ok,
      client:
        Client.new("localhost:50051", GRPCUtil.insecure_bearer_auth_token("somerandomkeyhere"))}

@@ -18,8 +18,7 @@ defmodule Authzed.Api.V1.Client do
   for example `"localhost:50051"`, `"grpc.example.com:443"`, or a typed address such as
   `"ipv4:10.0.0.5:50051"`.
 
-  `GRPC.Client.Supervisor` must be running — add `{GRPC.Client.Supervisor, []}` to your
-  application or see [`GRPC.Client.Supervisor`](https://hexdocs.pm/grpc/GRPC.Client.Supervisor.html).
+  Connections use the Gun adapter unless you pass `:adapter`.
 
   ## Options
 

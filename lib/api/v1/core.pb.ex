@@ -4,7 +4,7 @@ defmodule Authzed.Api.V1.RelationshipUpdate.Operation do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.RelationshipUpdate.Operation",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:OPERATION_UNSPECIFIED, 0)
@@ -19,7 +19,7 @@ defmodule Authzed.Api.V1.AlgebraicSubjectSet.Operation do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.AlgebraicSubjectSet.Operation",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:OPERATION_UNSPECIFIED, 0)
@@ -33,7 +33,7 @@ defmodule Authzed.Api.V1.Relationship do
 
   use Protobuf,
     full_name: "authzed.api.v1.Relationship",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:resource, 1, type: Authzed.Api.V1.ObjectReference, deprecated: false)
@@ -54,7 +54,7 @@ defmodule Authzed.Api.V1.ContextualizedCaveat do
 
   use Protobuf,
     full_name: "authzed.api.v1.ContextualizedCaveat",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:caveat_name, 1, type: :string, json_name: "caveatName", deprecated: false)
@@ -66,7 +66,7 @@ defmodule Authzed.Api.V1.SubjectReference do
 
   use Protobuf,
     full_name: "authzed.api.v1.SubjectReference",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:object, 1, type: Authzed.Api.V1.ObjectReference, deprecated: false)
@@ -78,7 +78,7 @@ defmodule Authzed.Api.V1.ObjectReference do
 
   use Protobuf,
     full_name: "authzed.api.v1.ObjectReference",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:object_type, 1, type: :string, json_name: "objectType", deprecated: false)
@@ -90,7 +90,7 @@ defmodule Authzed.Api.V1.ZedToken do
 
   use Protobuf,
     full_name: "authzed.api.v1.ZedToken",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:token, 1, type: :string, deprecated: false)
@@ -101,7 +101,7 @@ defmodule Authzed.Api.V1.Cursor do
 
   use Protobuf,
     full_name: "authzed.api.v1.Cursor",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:token, 1, type: :string, deprecated: false)
@@ -112,7 +112,7 @@ defmodule Authzed.Api.V1.RelationshipUpdate do
 
   use Protobuf,
     full_name: "authzed.api.v1.RelationshipUpdate",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:operation, 1,
@@ -129,7 +129,7 @@ defmodule Authzed.Api.V1.PermissionRelationshipTree do
 
   use Protobuf,
     full_name: "authzed.api.v1.PermissionRelationshipTree",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:tree_type, 0)
@@ -145,7 +145,7 @@ defmodule Authzed.Api.V1.AlgebraicSubjectSet do
 
   use Protobuf,
     full_name: "authzed.api.v1.AlgebraicSubjectSet",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:operation, 1,
@@ -166,7 +166,7 @@ defmodule Authzed.Api.V1.DirectSubjectSet do
 
   use Protobuf,
     full_name: "authzed.api.v1.DirectSubjectSet",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:subjects, 1, repeated: true, type: Authzed.Api.V1.SubjectReference)
@@ -177,7 +177,7 @@ defmodule Authzed.Api.V1.PartialCaveatInfo do
 
   use Protobuf,
     full_name: "authzed.api.v1.PartialCaveatInfo",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:missing_required_context, 1,

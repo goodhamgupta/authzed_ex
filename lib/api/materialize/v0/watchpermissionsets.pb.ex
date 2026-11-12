@@ -4,7 +4,7 @@ defmodule Authzed.Api.Materialize.V0.PermissionSetChange.SetOperation do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.materialize.v0.PermissionSetChange.SetOperation",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:SET_OPERATION_UNSPECIFIED, 0)
@@ -17,7 +17,7 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsRequest do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.WatchPermissionSetsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:optional_starting_after, 1,
@@ -31,7 +31,7 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsResponse do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.WatchPermissionSetsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:response, 0)
@@ -62,7 +62,7 @@ defmodule Authzed.Api.Materialize.V0.Cursor do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.Cursor",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:limit, 1, type: :uint32)
@@ -78,7 +78,7 @@ defmodule Authzed.Api.Materialize.V0.LookupPermissionSetsRequest do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.LookupPermissionSetsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:limit, 1, type: :uint32)
@@ -95,7 +95,7 @@ defmodule Authzed.Api.Materialize.V0.LookupPermissionSetsResponse do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.LookupPermissionSetsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:change, 1, type: Authzed.Api.Materialize.V0.PermissionSetChange)
@@ -107,7 +107,7 @@ defmodule Authzed.Api.Materialize.V0.PermissionSetChange do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.PermissionSetChange",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   oneof(:child, 0)
@@ -139,7 +139,7 @@ defmodule Authzed.Api.Materialize.V0.SetReference do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.SetReference",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:object_type, 1, type: :string, json_name: "objectType")
@@ -152,7 +152,7 @@ defmodule Authzed.Api.Materialize.V0.MemberReference do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.MemberReference",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:object_type, 1, type: :string, json_name: "objectType")
@@ -169,7 +169,7 @@ defmodule Authzed.Api.Materialize.V0.LookupPermissionSetsRequired do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.LookupPermissionSetsRequired",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:required_lookup_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "requiredLookupAt")
@@ -180,10 +180,16 @@ defmodule Authzed.Api.Materialize.V0.BreakingSchemaChange do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.BreakingSchemaChange",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:change_at, 1, type: Authzed.Api.V1.ZedToken, json_name: "changeAt")
+
+  field(:affected_permissions, 2,
+    repeated: true,
+    type: Authzed.Api.Materialize.V0.WatchedPermission,
+    json_name: "affectedPermissions"
+  )
 end
 
 defmodule Authzed.Api.Materialize.V0.DownloadPermissionSetsRequest do
@@ -191,7 +197,7 @@ defmodule Authzed.Api.Materialize.V0.DownloadPermissionSetsRequest do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.DownloadPermissionSetsRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:optional_at_revision, 1, type: Authzed.Api.V1.ZedToken, json_name: "optionalAtRevision")
@@ -202,7 +208,7 @@ defmodule Authzed.Api.Materialize.V0.File do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.File",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:name, 1, type: :string)
@@ -214,10 +220,12 @@ defmodule Authzed.Api.Materialize.V0.DownloadPermissionSetsResponse do
 
   use Protobuf,
     full_name: "authzed.api.materialize.v0.DownloadPermissionSetsResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:files, 1, repeated: true, type: Authzed.Api.Materialize.V0.File)
+  field(:timestamp, 2, type: Google.Protobuf.Timestamp)
+  field(:at_revision, 3, type: Authzed.Api.V1.ZedToken, json_name: "atRevision")
 end
 
 defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsService.Service do
@@ -225,7 +233,7 @@ defmodule Authzed.Api.Materialize.V0.WatchPermissionSetsService.Service do
 
   use GRPC.Service,
     name: "authzed.api.materialize.v0.WatchPermissionSetsService",
-    protoc_gen_elixir_version: "0.16.0"
+    protoc_gen_elixir_version: "0.17.1"
 
   rpc(
     :WatchPermissionSets,

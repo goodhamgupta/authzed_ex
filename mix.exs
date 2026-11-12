@@ -1,7 +1,7 @@
 defmodule Authzed.MixProject do
   use Mix.Project
 
-  @version "1.8.0"
+  @version "1.8.1"
   @repo_url "https://github.com/goodhamgupta/authzed_ex/"
 
   def project do
@@ -33,7 +33,7 @@ defmodule Authzed.MixProject do
   defp deps do
     [
       {:grpc, "~> 1.0"},
-      {:protobuf, "~> 0.17"},
+      {:protobuf, "~> 0.17.1"},
       # Default adapter for GRPC.Stub.connect/2
       {:gun, "~> 2.4"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}

@@ -4,7 +4,7 @@ defmodule Authzed.Api.V1.WatchKind do
   use Protobuf,
     enum: true,
     full_name: "authzed.api.v1.WatchKind",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:WATCH_KIND_UNSPECIFIED, 0)
@@ -18,7 +18,7 @@ defmodule Authzed.Api.V1.WatchRequest do
 
   use Protobuf,
     full_name: "authzed.api.v1.WatchRequest",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:optional_object_types, 1,
@@ -52,7 +52,7 @@ defmodule Authzed.Api.V1.WatchResponse do
 
   use Protobuf,
     full_name: "authzed.api.v1.WatchResponse",
-    protoc_gen_elixir_version: "0.16.0",
+    protoc_gen_elixir_version: "0.17.1",
     syntax: :proto3
 
   field(:updates, 1, repeated: true, type: Authzed.Api.V1.RelationshipUpdate)
@@ -76,7 +76,7 @@ end
 defmodule Authzed.Api.V1.WatchService.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "authzed.api.v1.WatchService", protoc_gen_elixir_version: "0.16.0"
+  use GRPC.Service, name: "authzed.api.v1.WatchService", protoc_gen_elixir_version: "0.17.1"
 
   rpc(:Watch, Authzed.Api.V1.WatchRequest, stream(Authzed.Api.V1.WatchResponse))
 end
